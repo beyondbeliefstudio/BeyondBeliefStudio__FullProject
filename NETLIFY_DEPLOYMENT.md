@@ -5,6 +5,7 @@ This monorepo contains 3 separate Astro applications that should be deployed as 
 ## Sites to Create
 
 ### 1. Landing Site
+
 - **Repository**: https://github.com/beyondbeliefstudio/BeyondBeliefStudio__FullProject
 - **Branch**: main
 - **Base directory**: apps/landing
@@ -14,6 +15,7 @@ This monorepo contains 3 separate Astro applications that should be deployed as 
 - **Domain**: beyondbeliefstudio.com
 
 ### 2. Screen Printing Site
+
 - **Repository**: https://github.com/beyondbeliefstudio/BeyondBeliefStudio__FullProject
 - **Branch**: main
 - **Base directory**: apps/screenprinting
@@ -23,6 +25,7 @@ This monorepo contains 3 separate Astro applications that should be deployed as 
 - **Domain**: screenprint.beyondbeliefstudio.com
 
 ### 3. Web Design Site
+
 - **Repository**: https://github.com/beyondbeliefstudio/BeyondBeliefStudio__FullProject
 - **Branch**: main
 - **Base directory**: apps/webdesign
@@ -51,10 +54,11 @@ This monorepo contains 3 separate Astro applications that should be deployed as 
 5. **Deploy Settings**:
    - After initial deployment, go to Site Settings → Build & Deploy
    - Under "Build settings" → click "Edit settings"
-   - Set "Config file path" to the appropriate config file:
-     - Landing: `netlify-landing.toml`
+   - **IMPORTANT**: Set "Config file path" to the appropriate config file:
+     - Landing: `netlify-landing.toml` (or use the default `netlify.toml`)
      - Screen Printing: `netlify-screenprinting.toml`
      - Web Design: `netlify-webdesign.toml`
+   - This tells Netlify which configuration file to use for build settings
 
 6. **Domain Setup**:
    - Go to Site Settings → Domain Management
@@ -73,7 +77,6 @@ For your domain registrar, you'll need to set up:
 2. **CNAME Records** (for subdomains):
    - Name: `screenprint`
    - Value: `[your-screenprinting-site].netlify.app`
-   
    - Name: `webdesign`
    - Value: `[your-webdesign-site].netlify.app`
 
@@ -95,3 +98,28 @@ cd apps/screenprinting && npm run build && npm run preview
 # Web Design
 cd apps/webdesign && npm run build && npm run preview
 ```
+
+## Troubleshooting
+
+### Error: "Missing script: build"
+This happens when Netlify doesn't find the correct config file or is running in the wrong directory.
+
+**Solution**: 
+1. Ensure the config file path is set correctly in Netlify UI
+2. For landing site, you can use the default `netlify.toml` file (already created)
+3. Make sure the base directory is set to the correct app folder
+
+### Error: "No config file was defined"
+This means Netlify is not finding your configuration file.
+
+**Solution**:
+1. Go to Site Settings → Build & Deploy → Build settings
+2. Click "Edit settings"
+3. Set "Config file path" to the appropriate `.toml` file
+4. Save and redeploy
+
+### Build Command Issues
+If you're still having issues, you can manually set in Netlify UI:
+- **Base directory**: `apps/landing` (or appropriate app)
+- **Build command**: `npm install && npm run build`
+- **Publish directory**: `apps/landing/dist` (or appropriate app/dist)
