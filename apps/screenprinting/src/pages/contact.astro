@@ -1,0 +1,23 @@
+---
+import InternalHero from "@shared/components/InternalHero.astro";
+import ContactForm from "@/components/ContactForm.astro";
+import Layout from "@/layouts/Layout.astro";
+
+
+---
+
+<Layout title="Contact Us" description="Get in touch with us">
+
+<InternalHero
+  title="Contact Us"
+  subtitle="We'd love to hear from you" ariaLabel="Hero Contact Us" classes="hero-contact" />
+
+<ContactForm />
+
+</Layout>
+
+<style lang="scss">
+.hero-contact {
+    padding-bottom: 10rem;
+}
+</style>

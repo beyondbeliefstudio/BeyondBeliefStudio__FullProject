@@ -1,0 +1,44 @@
+---
+import BlogCard from "@/components/blog/BlogCard.astro";
+import type { GetStaticPaths } from "astro";
+import { Picture } from "astro:assets";
+import { render } from "astro:content";
+import { getCollection } from "astro:content";
+import Heading from "@shared/components/Heading.astro";
+
+export const getStaticPaths = (async () => {
+    const posts = await getCollection("blog", ({ data }) => !data.isDraft);
+    return posts.map((post) => ({
+        params: { page: post.data.slug },
+        props: { post },
+    }));
+}) satisfies GetStaticPaths;
+
+const { post } = Astro.props;
+const { Content } = await render(post);
+const { title, description, heroImage, imageAlt, pubDate, slug, tags, author } = post.data;
+
+// Fetch all posts, filter out current, sort by date, and take top 3
+const allPosts = await getCollection("blog", ({ data }) => !data.isDraft);
+const recentPosts = allPosts
+    .filter(p => p.data.slug !== slug)
+    .sort((a, b) => new Date(b.data.pubDate).getTime() - new Date(a.data.pubDate).getTime())
+    .slice(0, 3);
+
+export let posts;
+---
+
+<section class="recent-blogs" aria-label="Recently Posted Blogs">
+    <div class="container-md">
+        <Heading tag="h3" size="l" fontFamily="primary" marginBottom="m">Recently Posted Blogs</Heading>
+        <div class="recent-blogs__grid grid-auto-3">
+            {recentPosts.map(post => (
+                <BlogCard post={post} />
+            ))}
+        </div>
+    </div>
+</section>
+
+<style lang="scss">
+
+</style>

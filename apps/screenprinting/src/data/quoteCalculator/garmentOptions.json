@@ -1,0 +1,42 @@
+[
+  {
+    "id": 1,
+    "value": "tshirt",
+    "label": "T-Shirt",
+    "avgPriceBasic": 4.5,
+    "avgPriceMidRange": 7.0,
+    "avgPricePremium": 9.5
+  },
+  {
+    "id": 2,
+    "value": "hoodie",
+    "label": "Hoodie",
+    "avgPriceBasic": 16,
+    "avgPriceMidRange": 20,
+    "avgPricePremium": 28
+  },
+  {
+    "id": 3,
+    "value": "tanktop",
+    "label": "Tank Top",
+    "avgPriceBasic": 12,
+    "avgPriceMidRange": 18,
+    "avgPricePremium": 25
+  },
+  {
+    "id": 4,
+    "value": "longsleeve",
+    "label": "Long Sleeve",
+    "avgPriceBasic": 15,
+    "avgPriceMidRange": 20,
+    "avgPricePremium": 30
+  },
+  {
+    "id": 5,
+    "value": "sweatshirt",
+    "label": "Sweatshirt",
+    "avgPriceBasic": 20,
+    "avgPriceMidRange": 25,
+    "avgPricePremium": 35
+  }
+]

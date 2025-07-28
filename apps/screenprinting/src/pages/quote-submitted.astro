@@ -1,0 +1,21 @@
+---
+import Layout from "@/layouts/Layout.astro";
+import InternalHero from "@shared/components/InternalHero.astro";
+---
+
+<Layout title="Quote Submitted">
+    <InternalHero 
+        title="Thank You!" 
+        subtitle="We've received your quote request and will be in touch within 24 hours." 
+        ariaLabel="Quote Submitted Hero" 
+    />
+    
+    <section>
+        <div class="container-md">
+            <div class="content-md">
+                <p>We'll review your project details and send you a detailed quote along with next steps.</p>
+                <p>In the meantime, feel free to <a href="/contact">contact us</a> if you have any questions.</p>
+            </div>
+        </div>
+    </section>
+</Layout>

@@ -1,0 +1,28 @@
+---
+import Layout from '@shared/layouts/Layout.astro';
+import Heading from '@shared/components/Heading.astro';
+import Buttons from '@shared/components/Buttons.astro';
+---
+
+<Layout title="Web Design">
+	<main>
+		<section>
+			<div class="container">
+				<Heading tag="h1" size="xxl" fontFamily="primary" marginBottom="l">
+					Beyond Belief Web Design
+				</Heading>
+				<p>This is the web design page using shared components!</p>
+				<Buttons variant="secondary" href="/portfolio">View Portfolio</Buttons>
+			</div>
+		</section>
+	</main>
+</Layout>
+
+<style>
+.container {
+	max-width: 1200px;
+	margin: 0 auto;
+	padding: 2rem;
+	text-align: center;
+}
+</style>

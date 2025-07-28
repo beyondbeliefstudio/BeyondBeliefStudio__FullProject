@@ -1,0 +1,200 @@
+[
+  {
+    "id": 1,
+    "itemNumber": "G5000",
+    "itemName": "Heavy Cotton T-Shirt",
+    "itemBrand": "Gildan",
+    "itemImage": "https://cdn.ssactivewear.com/Images/Style/16_fm.jpg",
+    "itemPrice": 4.25,
+    "itemCategory": "T-Shirt",
+    "itemQuality": "basic",
+    "itemURL": "https://www.ssactivewear.com/p/gildan/5000"
+  },
+  {
+    "id": 2,
+    "itemNumber": "J29MR",
+    "itemName": "Dri-Power 50/50 T-Shirt",
+    "itemBrand": "Jerzees",
+    "itemImage": "https://cdn.ssactivewear.com/Images/Style/145_fm.jpg",
+    "itemPrice": 4.7,
+    "itemCategory": "T-Shirt",
+    "itemQuality": "basic",
+    "itemURL": "https://www.ssactivewear.com/p/jerzees/29mr"
+  },
+  {
+    "id": 3,
+    "itemNumber": "AA1301",
+    "itemName": "Unisex Heavyweight Cotton Tee",
+    "itemBrand": "American Apparel",
+    "itemImage": "https://cdn.ssactivewear.com/Images/Style/8168_fm.jpg",
+    "itemPrice": 4.75,
+    "itemCategory": "T-Shirt",
+    "itemQuality": "basic",
+    "itemURL": "https://www.ssactivewear.com/p/american_apparel/1301"
+  },
+  {
+    "id": 4,
+    "itemNumber": "BC3001",
+    "itemName": "Unisex Jersey T-Shirt",
+    "itemBrand": "Bella+Canvas",
+    "itemImage": "https://cdn.ssactivewear.com/Images/Style/29_fm.jpg",
+    "itemPrice": 6.5,
+    "itemCategory": "T-Shirt",
+    "itemQuality": "midrange",
+    "itemURL": "https://www.ssactivewear.com/p/bella/3001"
+  },
+  {
+    "id": 5,
+    "itemNumber": "AS5001",
+    "itemName": "Staple T-Shirt",
+    "itemBrand": "AS Colour",
+    "itemImage": "https://cdn11.bigcommerce.com/s-hsi95a83fz/images/stencil/1500w/products/182/6932/5001_STAPLE_TEE_MAIN__24965.1660701687.jpg?",
+    "itemPrice": 7.75,
+    "itemCategory": "T-Shirt",
+    "itemQuality": "midrange",
+    "itemURL": "https://ascolour.com/staple-tee-5001/"
+  },
+  {
+    "id": 6,
+    "itemNumber": "NL3600",
+    "itemName": "Cotton Crew T-Shirt",
+    "itemBrand": "Next Level",
+    "itemImage": "https://cdn.ssactivewear.com/Images/Style/3214_fm.jpg",
+    "itemPrice": 5.75,
+    "itemCategory": "T-Shirt",
+    "itemQuality": "midrange",
+    "itemURL": "https://www.ssactivewear.com/p/next_level/3600"
+  },
+  {
+    "id": 7,
+    "itemNumber": "CC1717",
+    "itemName": "Garment-Dyed T-Shirt",
+    "itemBrand": "Comfort Colors",
+    "itemImage": "https://cdn.ssactivewear.com/Images/Style/1822_fm.jpg",
+    "itemPrice": 8.5,
+    "itemCategory": "T-Shirt",
+    "itemQuality": "premium",
+    "itemURL": "https://www.ssactivewear.com/p/comfort_colors/1717"
+  },
+  {
+    "id": 8,
+    "itemNumber": "AS5026",
+    "itemName": "Classic T-Shirt",
+    "itemBrand": "AS Colour",
+    "itemImage": "https://cdn11.bigcommerce.com/s-hsi95a83fz/images/stencil/1500w/products/201/15915/5026_CLASSIC_TEE_MAIN__25541.1716424059.jpg?c",
+    "itemPrice": 11.0,
+    "itemCategory": "T-Shirt",
+    "itemQuality": "premium",
+    "itemURL": "https://ascolour.com/classic-tee-5026/"
+  },
+  {
+    "id": 9,
+    "itemNumber": "NL 6010",
+    "itemName": "Premium Fitted T-Shirt",
+    "itemBrand": "Next Level",
+    "itemImage": "https://cdn.ssactivewear.com/Images/Style/3221_fm.jpg",
+    "itemPrice": 8.1,
+    "itemCategory": "T-Shirt",
+    "itemQuality": "premium",
+    "itemURL": "https://www.ssactivewear.com/p/next_level/6010"
+  },
+  {
+    "id": 10,
+    "itemNumber": "LS14001",
+    "itemName": "Premium Pullover Hooded Sweatshirt",
+    "itemBrand": "Lane Seven",
+    "itemImage": "https://cdn.ssactivewear.com/Images/ModelColor/120320_omf_fm.jpg",
+    "itemPrice": 15,
+    "itemCategory": "Hoodie",
+    "itemQuality": "basic",
+    "itemURL": "https://www.ssactivewear.com/p/lane_seven/ls14001"
+  },
+  {
+    "id": 11,
+    "itemNumber": "P170",
+    "itemName": "Ecosmart® Hooded Sweatshirt",
+    "itemBrand": "Hanes",
+    "itemImage": "https://cdn.ssactivewear.com/Images/Style/391_fm.jpg",
+    "itemPrice": 16.50,
+    "itemCategory": "Hoodie",
+    "itemQuality": "basic",
+    "itemURL": "https://www.ssactivewear.com/p/hanes/p170"
+  },
+  {
+    "id": 12,
+    "itemNumber": "G18500",
+    "itemName": "Heavy Blend™ Hooded Sweatshirt",
+    "itemBrand": "Gildan",
+    "itemImage": "https://cdn.ssactivewear.com/Images/Style/395_fm.jpg",
+    "itemPrice": 16.50,
+    "itemCategory": "Hoodie",
+    "itemQuality": "basic",
+    "itemURL": "https://www.ssactivewear.com/p/gildan/18500"
+  },
+  {
+    "id": 13,
+    "itemNumber": "996MR",
+    "itemName": "NuBlend® Hooded Sweatshirt",
+    "itemBrand": "Jerzees",
+    "itemImage": "https://cdn.ssactivewear.com/Images/Style/393_fm.jpg",
+    "itemPrice": 18.20,
+    "itemCategory": "Hoodie",
+    "itemQuality": "midrange",
+    "itemURL": "https://www.ssactivewear.com/p/jerzees/996mr"
+  },
+  {
+    "id": 14,
+    "itemNumber": "SS4500",
+    "itemName": "Midweight Hooded Sweatshirt",
+    "itemBrand": "Independent Trading Co.",
+    "itemImage": "https://cdn.ssactivewear.com/Images/ModelColor/31212_omf_fm.jpg",
+    "itemPrice": 18.20,
+    "itemCategory": "Hoodie",
+    "itemQuality": "midrange",
+    "itemURL": "https://www.ssactivewear.com/p/independent_trading_co/ss4500"
+  },
+  {
+    "id": 15,
+    "itemNumber": "AS5101",
+    "itemName": "Supply Hood",
+    "itemBrand": "AS Colour",
+    "itemImage": "https://cdn11.bigcommerce.com/s-hsi95a83fz/images/stencil/1500w/products/1139/20521/5101_SUPPLY_HOOD_MAIN__07503.1741654127.jpg?",
+    "itemPrice": 23.10,
+    "itemCategory": "Hoodie",
+    "itemQuality": "midrange",
+    "itemURL": "https://ascolour.com/supply-hood-5101/"
+  },
+    {
+    "id": 16,
+    "itemNumber": "IND4000",
+    "itemName": "Heavyweight Hooded Sweatshirt",
+    "itemBrand": "Independent Trading Co.",
+    "itemImage": "https://cdn.ssactivewear.com/Images/Style/403_fm.jpg",
+    "itemPrice": 27.00,
+    "itemCategory": "Hoodie",
+    "itemQuality": "premium",
+    "itemURL": "https://www.ssactivewear.com/p/independent_trading_co/ind4000"
+  },
+    {
+    "id": 17,
+    "itemNumber": "BC4719",
+    "itemName": "Heavyweight Hoodie Sweatshirt",
+    "itemBrand": "Bella+Canvas",
+    "itemImage": "https://cdn.ssactivewear.com/Images/ModelColor/116258_omf_fm.jpg",
+    "itemPrice": 29.50,
+    "itemCategory": "Hoodie",
+    "itemQuality": "premium",
+    "itemURL": "https://www.ssactivewear.com/p/bella/4719"
+  },
+    {
+    "id": 18,
+    "itemNumber": "AS5102",
+    "itemName": "Stencil Hood",
+    "itemBrand": "AS Colour",
+    "itemImage": "https://cdn11.bigcommerce.com/s-hsi95a83fz/images/stencil/1500w/products/222/6903/5102_STENCIL_HOOD_MAIN__10256.1660195030.jpg",
+    "itemPrice": 31.15,
+    "itemCategory": "Hoodie",
+    "itemQuality": "premium",
+    "itemURL": "https://ascolour.com/stencil-hood-5102/"
+  }
+]

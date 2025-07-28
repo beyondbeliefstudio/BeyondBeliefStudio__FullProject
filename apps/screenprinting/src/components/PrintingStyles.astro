@@ -1,0 +1,180 @@
+---
+import {Picture} from "astro:assets";
+import Links from "@shared/components/Links.astro";
+import printPress from "@/assets/printPress.jpg";
+import Heading from "@shared/components/Heading.astro";
+
+
+---
+
+<section class="bg-white" id="printing-styles">
+    <div class="container-md styles-component vertical-section">
+        <div class="styles-wrapper__text">
+            <div class="sticky-wrapper">
+                <Heading tag="h2" size="xl" fontFamily="primary" marginBottom="s">Screen Printing Styles We Offer</Heading>
+                <p>We offer several professional printing techniques to match your artwork, garment, and desired look:</p>
+                <p>Not sure which method is right for your project? Don't worry — we'll guide you through it.</p>
+            </div>
+        </div>
+        <div class="styles-wrapper">
+            <div class="styles-card">
+                <div class="img-wrapper">
+                    <Picture src={printPress} alt="travel photo" class="hero__img" loading="eager" width={2000} height={1000} />
+                </div>
+                <div class="card-content">
+                     <span class="icon">
+                        <svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30.12 39.88">
+                        <path d="M30.12,24.82c0,8.32-6.74,15.06-15.06,15.06S0,33.14,0,24.82,15.06,0,15.06,0c0,0,15.06,16.5,15.06,24.82h0Z"/>
+                        </svg>
+                    </span>
+                    <Heading tag="h3" size="m" fontFamily="secondary" marginBottom="s">Spot Color Printing</Heading>
+                    <p>Our most popular technique delivers clean, bold colors with exceptional opacity. Perfect for logos, text, and designs with distinct color blocks. The result is vibrant prints that maintain their brightness even after multiple washes.</p>
+                </div>
+            </div>
+            <div class="styles-card">
+                <div class="img-wrapper">
+                    <Picture src={printPress} alt="travel photo" class="hero__img" loading="eager" width={2000} height={1000} />
+                </div>
+                <div class="card-content">
+                    <!-- <span class="number">01</span> -->
+                     <span class="icon">
+                        <svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30.12 39.88">
+                        <path d="M30.12,24.82c0,8.32-6.74,15.06-15.06,15.06S0,33.14,0,24.82,15.06,0,15.06,0c0,0,15.06,16.5,15.06,24.82h0Z"/>
+                        </svg>
+                    </span>
+                    <Heading tag="h3" size="m" fontFamily="secondary" marginBottom="s">Specialty Inks</Heading>
+                    <p>Make your design truly unique with our range of specialty inks. From dimensional puff ink that rises above the fabric to metallic finishes that catch the light, glow-in-the-dark effects for nighttime visibility, to tonal discharge that creates a super-soft vintage feel. These inks add texture and visual interest you can't achieve with standard printing.</p>
+                </div>
+            </div>
+            <div class="styles-card">
+                <div class="img-wrapper">
+                    <Picture src={printPress} alt="travel photo" class="hero__img" loading="eager" width={2000} height={1000} />
+                </div>
+                <div class="card-content">
+                    <!-- <span class="number">01</span> -->
+                     <span class="icon">
+                        <svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30.12 39.88">
+                        <path d="M30.12,24.82c0,8.32-6.74,15.06-15.06,15.06S0,33.14,0,24.82,15.06,0,15.06,0c0,0,15.06,16.5,15.06,24.82h0Z"/>
+                        </svg>
+                    </span>
+                    <Heading tag="h3" size="m" fontFamily="secondary" marginBottom="s">Custom Tag Printing</Heading>
+                    <p>Transform standard blanks into your own branded apparel with inside tag printing. We can remove existing tags and print your logo, care instructions, and sizing information directly on the garment. This professional touch elevates your brand and creates a seamless, retail-ready product.</p>
+                </div>
+            </div>
+            <div class="styles-card">
+                <div class="img-wrapper">
+                    <Picture src={printPress} alt="travel photo" class="hero__img" loading="eager" width={2000} height={1000} />
+                </div>
+                <div class="card-content">
+                    <!-- <span class="number">01</span> -->
+                     <span class="icon">
+                        <svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30.12 39.88">
+                        <path d="M30.12,24.82c0,8.32-6.74,15.06-15.06,15.06S0,33.14,0,24.82,15.06,0,15.06,0c0,0,15.06,16.5,15.06,24.82h0Z"/>
+                        </svg>
+                    </span>
+                    <Heading tag="h3" size="m" fontFamily="secondary" marginBottom="s">Fullfillment Services</Heading>
+                    <p>We offer comprehensive fulfillment services to handle your inventory and shipping needs. From warehousing to order processing, we ensure your products are ready to go when you need them. This allows you to focus on growing your business while we take care of the logistics.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<style lang="scss">
+
+.styles-component {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    grid-gap: var(--_spacing---section-space--small);
+
+    @media screen and (max-width: 1010px) {
+        grid-template-columns: 1fr;
+    }
+}
+
+.styles-card {
+    background-color: #6def7717;
+    border: 1px solid var(--brand-primary);
+    border-radius: var(--border-radius-medium);
+    padding: 1rem;
+    display: flex;
+    overflow: hidden;
+    align-items: center;
+    justify-content: center;
+
+    @media screen and (max-width: 768px) {
+        flex-direction: column;
+    }
+}
+
+.img-wrapper {
+    // aspect-ratio: 1 / 1;
+    // width: fit-content;
+    width: 100%;
+    border-radius: 7px;
+    overflow: hidden;
+    height: 100%;
+}
+
+.card-content {
+    width: 100%;
+    padding: 2rem 2rem 1rem;
+
+    @media screen and (max-width: 768px) {
+        padding: 2rem 1rem 1rem;
+        
+    }
+}
+
+span.number {
+    font-size: 2.5rem;
+    font-family: 'Hamburg';
+    color: var(--brand-primary);
+    text-shadow: 2px 2px var(--dark-900);
+    -webkit-text-stroke: 1px var(--dark-900);
+    margin-bottom: 1rem;
+    display: block;
+}
+
+span.icon {
+    height: 60px;
+    width: 60px;
+    background-color: var(--brand-primary);
+    border-radius: var(--border-radius-round);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1rem;
+}
+
+span.icon svg {
+    height: 30px;
+    width: 30px;
+}
+
+span.icon svg path {
+    fill: var(--dark-800);
+}
+
+.styles-wrapper__text {
+    position: sticky;
+}
+
+.sticky-wrapper {
+    z-index: 1;
+    flex: 0 auto;
+    align-self: auto;
+    display: inline-block;
+    position: sticky;
+    top: 160px;
+}
+
+.styles-wrapper {
+    gap: 1rem;
+    flex-flow: column;
+    display: flex;
+}
+
+
+
+</style>

@@ -1,0 +1,49 @@
+---
+// Content
+import type { CollectionEntry } from 'astro:content';
+import Heading from '@shared/components/Heading.astro';
+import { Picture } from 'astro:assets';
+
+
+// Components
+type Props = { team: CollectionEntry<"team">
+};
+
+const {team} = Astro.props;
+
+const {name, image, imageAlt, position} = team.data;
+
+---
+
+<li>
+    <Picture src={image as any} alt={imageAlt} class="team__img" loading="eager" width={1300} height={1000} />
+    <div class="team__content">
+        <Heading tag='h3' size='s' fontFamily='primary' marginBottom='none'>{name}</Heading>
+        <p class="review">{position}</p>
+    </div
+</li>
+
+<style lang="scss">
+li {
+    display: block;
+    height: fit-content;
+    max-width: 350px;
+    text-align: left;
+    cursor: pointer;
+    gap: 1rem;
+    display: flex;
+    flex-direction: column;
+
+    .team {
+        &__img {
+            width: 100%;
+            height: auto;
+            border-radius: var(--border-radius-medium);
+            object-fit: cover;
+            aspect-ratio: 4 / 5;
+            border: .5rem solid var(--light-100);
+        }
+    }
+}
+
+</style>

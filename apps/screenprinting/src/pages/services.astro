@@ -1,0 +1,154 @@
+---
+// Helpers
+import {Picture} from "astro:assets";
+import { getCollection } from 'astro:content';
+
+// Assets
+import shop from "@/assets/shop.jpeg";
+
+// Components
+import Layout from "@/layouts/Layout.astro";
+import PrintingStyles from "@/components/PrintingStyles.astro";
+import CTA from "@/components/CTA.astro";
+import Heading from "@shared/components/Heading.astro";
+import InternalHero from "@shared/components/InternalHero.astro";
+import SplitOverlay from "@shared/components/SplitOverlay.astro";
+
+// Blog Card Component
+const allPosts = await getCollection('blog');
+const featuredSlugs = ["event-shirt-design-guide", "favorite-apparel-blanks", "maximize-custom-apparel-budget"];
+const featuredPosts = allPosts.filter(post => featuredSlugs.includes(post.data.slug));
+
+
+// Data for FAQ section
+import FAQ from "@shared/components/FAQ.astro";
+import BlogCard from "@/components/blog/BlogCard.astro";
+
+const faq = await getCollection('servicesFAQ');
+
+const faqData = faq.map((item) => ({
+  tag: item.data.tag,
+  question: item.data.question,
+  answer: item.data.answer
+}));
+
+---
+
+<Layout title="Services">
+
+<InternalHero title="Services" subtitle="From design tweaks to final packing, I handle every step of your screen‑printing project right here in Monroe, NC. Clear communication, fast timelines, and prints that last long after the applause." ariaLabel="Hero Services" class="test" />
+
+<SplitOverlay title="Custom Apparel Printing" imgSrc={shop} imgAlt="Photo of Press" orientation="">
+    <p>Running solo lets me keep costs low and quality sky‑high. Minimums start at 24 pieces for single‑color runs and 36 for multi‑color artwork, perfect for small events or growing brands. I source dependable blanks, burn screens in‑house, and spot‑check every shirt so your colors stay vivid wash after wash. Pick up at the garage studio or have your order shipped anywhere in the country—either way, you get fair pricing and friendly service every time.</p>
+</SplitOverlay>
+
+
+<PrintingStyles />
+
+<section class="bg-primary" id="work-with-us">
+    <div class="container-md column-main">
+        <div class="content-md">
+            <Heading tag="h2" size="xl" fontFamily="primary" marginBottom="s">Why Work With Us</Heading>
+            <p>We’re a small team that cares deeply about quality, speed, and helping you look your best. From first mockup to final print, we make it easy.</p>
+        </div>
+        <div class="content-full grid-auto-3">
+            <div class="card">
+                <Heading tag="h3" size="m" fontFamily="primary" marginBottom="s">Locally Rooted</Heading>
+                <p>We’re based right here in Monroe, NC — proudly serving our local community with a personal touch, fast turnarounds, and face-to-face service when needed.</p>
+            </div>
+            <div class="card">
+                <Heading tag="h3" size="m" fontFamily="primary" marginBottom="s">Collaborative Approach</Heading>
+                <p>Whether you have a finished design or just an idea, we walk you through each step — artwork, garments, pricing, and print options — with care.</p>
+            </div>
+            <div class="card">
+                <Heading tag="h3" size="m" fontFamily="primary" marginBottom="s">Printed In-House</Heading>
+                <p>All printing is done by us in our studio. No outsourcing, no middlemen — just hands-on craftsmanship and full control over quality.</p>
+            </div>
+            <div class="card">
+                <Heading tag="h3" size="m" fontFamily="primary" marginBottom="s">Quality Obsessed</Heading>
+                <p>We don’t cut corners. Every print is checked by hand, every garment stacked with care, and every order treated like it’s our own.</p>
+            </div>
+            <div class="card">
+                <Heading tag="h3" size="m" fontFamily="primary" marginBottom="s">Fast & Reliable</Heading>
+                <p>Our typical turnaround is 7–10 business days, and we’ll always be upfront about timelines, changes, or rush availability — no radio silence, ever.</p>
+            </div>
+            <div class="card">
+                <Heading tag="h3" size="m" fontFamily="primary" marginBottom="s">Flexible & Honest</Heading>
+                <p>We’ll let you know what’s realistic, what works best for your budget, and offer alternatives if something’s not the right fit.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="bg-dark">
+    <div class="container-md column-main">
+        <div class="content-md">
+            <Heading tag="h2" size="xl" fontFamily="primary" marginBottom="s">Dig Deeper Into Our Services</Heading>
+            <p class="large">Explore our articles below where we dive deeper into each service we offer.</p>
+        </div>
+        <div class="content-full blog-card__wrapper grid-auto-3">
+            {
+                featuredPosts.map(post => (
+                <BlogCard post={post} />
+                ))
+            }
+        </div>
+    </div>
+</section>
+
+ <FAQ faq={faqData} />
+
+<CTA />
+
+</Layout>
+
+
+<style lang="scss">
+#work-with-us {
+    .card {
+        background-color: var(--light-100);
+        border-radius: var(--border-radius-medium);
+        padding: 1.5rem 1.5rem .5rem;
+        text-wrap: balance;
+        text-align: left;
+    }
+}
+
+
+.bg-dark {
+    .content-md {
+        h1, h2, h3, h4, h5, h6, p {
+            color: var(--light-100);
+        }
+    }
+}
+
+.list {
+    border-left: 2px solid;
+    padding: 0rem 1rem;
+    margin-left: 1rem;
+
+    li:last-child {
+        p {
+            margin-bottom: 0;
+        }
+    }
+}
+
+#garments {
+    .blog-card {
+        border: 1px solid var(--dark-900--transparency);
+
+        &:hover {
+            background-color: var(--light-200--transparency)
+        }
+        &__content {
+            color: var(--dark-900);
+
+            p {
+                color: var(--dark-900);
+            }
+        }
+    }
+}
+</style>

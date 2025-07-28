@@ -1,0 +1,75 @@
+---
+import { Picture } from "astro:assets";
+import type { CollectionEntry } from "astro:content";
+import Heading from "@shared/components/Heading.astro";
+import Links from "@shared/components/Links.astro";
+
+// Blog Posts
+type Props = {
+    post: CollectionEntry<"blog">;
+};
+
+const { post } = Astro.props;
+
+const { title, description, heroImage, imageAlt, pubDate, slug, tags, author } = post.data;
+---
+    <div class="blog-card">
+        <a href={`/blog/${slug}`} class="blog-card__link-wrapper">
+            <div class="blog-card__img-wrapper">
+                <Picture src={heroImage as any} alt={imageAlt} class="blog-card__img" />
+            </div>
+            <div class="blog-card__content">
+                <Heading tag="h2" size="s" fontFamily="primary" marginBottom="s">{title}</Heading>
+                <p class="blog-card__description">{description}</p>
+                <Links href={`/blog/${slug}`} variant="inline" classes="blog-card__link">Read more</Links>
+            </div>
+        </a>
+    </div>
+<style lang="scss">
+.blog-card {
+    display: flex;
+    flex-direction: column;
+    background: var(--light-100);
+    border-radius: var(--border-radius-medium);
+    padding: 1rem;
+    gap: 1rem;
+    cursor: pointer;
+
+    &__img-wrapper {
+        width: 100%;
+        overflow: hidden;
+        border-radius: var(--border-radius-medium);
+        aspect-ratio: 1 /1;
+    }
+
+    &__img {
+        transition: .25s ease-in-out all;
+    }
+
+    &__description {
+        font-size: .90rem;
+        line-height: 1.4;
+    }
+
+    &__content {
+        text-align: left;
+    }
+
+    &__link {
+        color: var(--primary-color);
+        text-decoration: none;
+    }
+
+    &:hover {
+        .blog-card__link {
+            &:before {
+                transform: scaleX(1);
+            }
+        }
+
+        .blog-card__img {
+            transform: scale(1.05);
+        }
+    }
+}
+</style>

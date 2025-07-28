@@ -1,0 +1,86 @@
+---
+import Heading from "@shared/components/Heading.astro";
+
+import type { HTMLAttributes } from "astro/types";
+import { Picture } from "astro:assets";
+
+export interface HeroProps extends HTMLAttributes<"section"> {
+    title: string;
+    subtitle?: string;
+    ariaLabel?: string;
+    classes?: string;
+    heroImage?: string;
+    imageAlt?: string;
+};
+
+const { title, subtitle, ariaLabel, classes, heroImage, imageAlt, ...rest } = Astro.props;
+
+
+---
+
+<section class:list={["hero", "bg-dark", classes ]} aria-label={ariaLabel} {...rest}>
+    <div class="container-md hero__container">
+        <div class="column column-main flex-1">
+            <div class="content-md">
+                <Heading tag="h1" size="xxl" fontFamily="primary" marginBottom="l">{title}</Heading>
+                <p>
+                    {subtitle}
+                </p>
+            </div>
+        </div>
+    </div>
+    <div id="blob"></div>
+    <div id="blur"></div>
+</section>
+
+<section class="hero-image" aria-label="Hero Image">
+    <div class="container-md hero-image__container">
+        <div class="content-full">
+            <div class="hero-image__img-wrapper">
+                <Picture src={heroImage} alt={imageAlt} />
+            </div>
+        </div>
+    </div>
+</section>
+
+<style lang="scss">
+.hero {
+    overflow: hidden; 
+    position: relative;
+    padding-top: 124px;
+    padding-bottom: 30vh;
+
+    &__container {
+        padding-top: var(--_spacing---section-space--xl);
+        padding-bottom: var(--_spacing---section-space--xl);
+    }
+
+    h1, h2, h3, h4, p {
+        color: var(--light-200)
+    }
+
+    .column {
+        position: relative;
+        z-index: 999;
+    }
+}
+
+.hero-image {
+    margin-top: -30vh;
+    position: relative;
+    z-index: 4;
+
+    &__container {
+        padding-top: 0;
+        padding-bottom: 0;
+    }
+    
+    &__img-wrapper {
+        width: 100%;
+        border-radius: var(--border-radius-medium);
+        overflow: hidden;
+        height: 60vh;
+    }
+}
+
+</style>

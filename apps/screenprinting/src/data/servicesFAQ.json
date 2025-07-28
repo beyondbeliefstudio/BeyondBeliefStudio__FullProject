@@ -1,0 +1,50 @@
+[
+  {
+    "id": 1,
+    "question": "What’s the minimum order?",
+    "answer": "24 items for single-color prints, 36 for multi-color. Specialty inks may require more.",
+    "tag": "a1"
+  },
+  {
+    "id": 2,
+    "question": "Can I mix sizes and styles?",
+    "answer": "You can mix sizes, but style mixing depends on the design. We’ll let you know what’s possible.",
+    "tag": "a2"
+  },
+  {
+    "id": 3,
+    "question": "Do you help with the artwork?",
+    "answer": "Yes! We can clean up or prepare your design for print. Vector files (AI, EPS, or SVG) are preferred.",
+    "tag": "a3"
+  },
+  {
+    "id": 4,
+    "question": "Can I bring my own shirts?",
+    "answer": "We do not accept customer‑supplied garments. Printing only on blanks we source keeps fabric quality consistent, ensures proper ink curing, and lets us replace the rare misprint without delay. Take a look at our <a href=\"/catalog\">Catalog</a> page for a lineup of popular styles and price points. If you do not see the perfect fit, just ask and we will send over plenty of additional options.",
+    "tag": "a4"
+  },
+  {
+    "id": 5,
+    "question": "How much does it cost?",
+    "answer": "Pricing depends on the garment, number of colors, and print locations. We’ll quote you upfront with no surprises.",
+    "tag": "a5"
+  },
+  {
+    "id": 6,
+    "question": "Do you offer samples or mockups?",
+    "answer": "We send digital mockups before printing. Physical samples are available for larger jobs or by request.",
+    "tag": "a6"
+  },
+  {
+    "id": 7,
+    "question": "What is your turnaround time?",
+    "answer": "Standard turnaround is 7–10 business days after mockup approval and payment.",
+    "tag": "a7"
+  },
+  {
+    "id": 8,
+    "question": "Can I reorder the same design later?",
+    "answer": "Definitely! We archive all approved files for future use — easy reorder, consistent quality.",
+    "tag": "a8"
+  }
+]

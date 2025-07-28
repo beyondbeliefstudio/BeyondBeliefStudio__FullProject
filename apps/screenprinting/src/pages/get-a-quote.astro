@@ -1,0 +1,33 @@
+---
+import FAQ from "@shared/components/FAQ.astro";
+import InternalHero from "@shared/components/InternalHero.astro";
+import QuoteCalculator from "@/components/QuoteCalculator.astro";
+import Layout from "@/layouts/Layout.astro";
+
+// Data for FAQ section
+import { getCollection } from 'astro:content';
+const faq = await getCollection('quoteFAQ');
+
+const faqData = faq.map((item) => ({
+  tag: item.data.tag,
+  question: item.data.question,
+  answer: item.data.answer
+}));
+
+---
+
+<Layout title="Get A Quote">
+
+    <InternalHero title="Get A Quote" subtitle="Use our quick quote tool below to get an instant estimate for your custom screen printing project. This is a fast way to start your order and connect with our team—just fill out your details and we’ll help you get the ball rolling!" ariaLabel="Hero Get A Quote" classes="hero-quote" />
+
+    <QuoteCalculator />
+
+    <FAQ faq={faqData} id="quote-estimate-faq" ariaLabel="Quote Estimate FAQ" />
+
+</Layout>
+
+<style lang="scss">
+.hero-quote {
+    padding-bottom: 10rem;
+}
+</style>

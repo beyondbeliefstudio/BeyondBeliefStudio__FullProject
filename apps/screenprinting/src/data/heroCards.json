@@ -1,0 +1,34 @@
+[
+  {
+    "id": 1,
+    "title": "The Garden State",
+    "description": "4th of July Merchandise Drop",
+    "image": "@/assets/tgsHero.jpeg",
+    "imageAlt": "The Garden State",
+    "isFeatured": true
+  },
+  {
+    "id": 2,
+    "title": "Evangel Church",
+    "description": "'This Is Us' Collection",
+    "image": "@/assets/evangelHero.jpg",
+    "imageAlt": "Evangel Church",
+    "isFeatured": true
+  },
+  {
+    "id": 3,
+    "title": "Resting Place House of Worship",
+    "description": "There Must Be More Conference",
+    "image": "@/assets/restingPlace.jpg",
+    "imageAlt": "Resting Place",
+    "isFeatured": true
+  },
+  {
+    "id": 4,
+    "title": "Beyond Belief Golf Club",
+    "description": "Collection 001: Where Pars Are Rare",
+    "image": "@/assets/bbgcImage.jpg",
+    "imageAlt": "Beyond Belief Golf Club",
+    "isFeatured": true
+  }
+]

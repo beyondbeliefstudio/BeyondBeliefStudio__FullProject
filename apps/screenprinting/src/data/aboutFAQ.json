@@ -1,0 +1,44 @@
+[
+  {
+    "id": 1,
+    "question": "Who runs Beyond Belief Studio?",
+    "answer": "Just me — Chris Nervegna. I’m the one answering emails, reclaiming screens, pulling prints, packing boxes, and even grabbing the coffee. I built this shop from scratch, and I take a ton of pride in every order that leaves it.",
+    "tag": "a1"
+  },
+  {
+    "id": 2,
+    "question": "How did the studio get its name?",
+    "answer": "Beyond Belief started as the title of a family trimming and construction company way back when. Carrying the name forward keeps that hardworking spirit alive and pushes me to put extra care into every print.",
+    "tag": "a2"
+  },
+  {
+    "id": 3,
+    "question": "Where is the shop located?",
+    "answer": "You’ll find us in Monroe, North Carolina, just outside Charlotte. We print in a fully rebuilt garage turned studio—spotless, efficient, and hands‑down the nicest place in town to hang out and get work done.",
+    "tag": "a3"
+  },
+  {
+    "id": 4,
+    "question": "What kind of clients do you work with?",
+    "answer": "Mostly local businesses, schools, churches, and creatives — people who care about quality and want to support a local shop. I’ve printed for fundraisers, restaurants, golf trips, family reunions, and startup brands alike.",
+    "tag": "a4"
+  },
+  {
+    "id": 5,
+    "question": "What’s your favorite part of the process?",
+    "answer": "Honestly? That first pull on press when a design comes to life. That — and hearing from a customer that their team loved the shirts. Makes the long nights worth it.",
+    "tag": "a5"
+  },
+  {
+    "id": 6,
+    "question": "Do you still do everything yourself?",
+    "answer": "Yep. For now, every single job is handled in-house — no outsourcing, no middlemen. It lets me keep quality high and communication tight. I like it that way.",
+    "tag": "a6"
+  },
+  {
+    "id": 7,
+    "question": "How can I get in touch?",
+    "answer": "The best way is through the contact form on the website. I respond to every message personally, usually within a day or two. If you prefer to call or text, you can reach me at 908-419-9566. I’m always happy to chat about your project.",
+    "tag": "a7"
+  }
+]

@@ -1,0 +1,66 @@
+[
+  {
+    "id": 1,
+    "stars": "★★★★★",
+    "name": "Josh Sobocinski",
+    "company": "The Garden State",
+    "description": "Chris and the team have always delivered the most high quality service in a timely manner. Very professional and easy to work with. Highly recommend!",
+    "isFeatured": true
+  },
+  {
+    "id": 2,
+    "stars": "★★★★★",
+    "name": "Corey Jones",
+    "company": "New Jersey Living",
+    "description": "Chris has continued to deliver outstanding service and exceptional products with Beyond Belief Studio. He is my first stop for any of my team needs with apparel orders. If you are searching for a trusted partner for printing and apparel, you need to look no further than Beyond Belief!",
+    "isFeatured": true
+  },
+  {
+    "id": 3,
+    "stars": "★★★★★",
+    "name": "Samantha McAulay Haun",
+    "company": "Arborbrook Christian Academy",
+    "description": "Beyond Belief is my go-to for local screen printing for custom apparel. They have provided excellent and efficient customer service as well as competitive pricing. Chris goes above and beyond to ensure customer satisfaction. I highly recommend!",
+    "isFeatured": true
+  },
+  {
+    "id": 4,
+    "stars": "★★★★★",
+    "name": "Joshua Granados",
+    "company": "A R I Z O N A",
+    "description": "Amazing work and turn around! My order was a large order due to our national tour and Chris printed the large quantity and shipped it within days. Every time we needed to restock he’d have everything shipped within 48 hours. His attention to detail and passion for his craft can’t be beat. Looking forward to all my tours and working with Chris for all our merch needs.",
+    "isFeatured": true
+  },
+  {
+    "id": 5,
+    "stars": "★★★★★",
+    "name": "Silas Ridgway",
+    "company": "Hope Student Ministry",
+    "description": "Chris and Beyond Belief Studio really brought to life my design and ideas. I couldn\u0027t be more happy with my order. I can\u0027t wait to see all of our church students rocking our new merch at youth group and around town. Chris is definitely my new go-to-guy for our church merch.",
+    "isFeatured": true
+  },
+  {
+    "id": 6,
+    "stars": "★★★★★",
+    "name": "Nick DePasquale",
+    "company": "TacticiansCrown",
+    "description": "Chris\u0027 services are fast, high-quality, and extremely flexible. I\u0027ve been told by multiple people that the quality of print from Beyond Belief is their favorite piece of merch they own. I cannot recommend Chris enough!",
+    "isFeatured": true
+  },
+  {
+    "id": 7,
+    "stars": "★★★★★",
+    "name": "Julie Garbowsky",
+    "company": "Evangel Church",
+    "description": "Incredible service from start to finish. Chris is responsive, meticulous and gets the job done when we had a strict deadline. Have used for many years and more years to come!",
+    "isFeatured": true
+  },
+  {
+    "id": 8,
+    "stars": "★★★★★",
+    "name": "Brad Wilson",
+    "company": "Wilson & Co Realty Group",
+    "description": "Great attention to detail and completed in a timely manner! Beyond Belief Studio has great customer service and listens to your needs and wants.",
+    "isFeatured": true
+  }
+]

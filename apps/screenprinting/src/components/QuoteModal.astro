@@ -1,0 +1,61 @@
+---
+import Buttons from "@shared/components/Buttons.astro";
+import Heading from "@shared/components/Heading.astro";
+
+
+---
+
+<div id="quoteModal" class="quote-modal" style="display:none;">
+    <div class="quote-modal__content">
+        <span id="closeQuoteModal" class="quote-modal__close">&times;</span>
+        <Heading tag="h2" size="s" fontFamily="primary" marginBottom="s">Here are the details of your quote:</Heading>
+        <p id="quoteDetails"></p>
+        <form id="quoteEmailForm">
+        <label for="customerEmail">Your Email:</label>
+        <input type="email" id="customerEmail" name="customerEmail" required />
+        <Buttons variant="primary">Send Quote</Buttons>
+        </form>
+        <p id="quoteEmailStatus"></p>
+    </div>
+</div>
+
+<style lang="scss">
+.quote-modal {
+  position: fixed;
+  z-index: 9999;
+  left: 0; top: 0;
+  width: 100vw; height: 100vh;
+  background: rgba(0,0,0,0.5);
+  display: flex; align-items: center; justify-content: center;
+}
+.quote-modal__content {
+  background: #fff;
+  padding: 2rem;
+  border-radius: 16px;
+  max-width: 400px;
+  width: 100%;
+  text-align: center;
+  position: relative;
+}
+.quote-modal__close {
+  position: absolute;
+  top: 1rem; right: 1rem;
+  font-size: 2rem;
+  cursor: pointer;
+}
+#quoteEmailForm {
+  margin-top: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+#quoteEmailForm input[type="email"] {
+  padding: 0.5rem;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+}
+#quoteEmailStatus {
+  margin-top: 1rem;
+  color: green;
+}
+</style>

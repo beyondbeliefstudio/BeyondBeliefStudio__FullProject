@@ -1,0 +1,38 @@
+[
+  {
+    "id": 1,
+    "data": "step1",
+    "title": "Step 1: Grab a Quote",
+    "description": "Fill out our quote form or shoot us a message. Let us know what you’re thinking—artwork, colors, shirts, timeline.",
+    "image": "@/assets/reachOut.jpg",
+    "imageAlt": "Reach Out",
+    "active": "active"
+  },
+  {
+    "id": 2,
+    "data": "step2",
+    "title": "Step 2: Approve Your Proof",
+    "description": "We’ll send a digital proof so you can see your design on the actual shirt style and color.",
+    "image": "@/assets/mockup.jpg",
+    "imageAlt": "Mockup",
+    "active": ""
+  },
+  {
+    "id": 3,
+    "data": "step3",
+    "title": "Step 3: We Hit the Presses",
+    "description": "Every shirt is printed in-house using top-quality inks and processes we trust. No outsourcing.",
+    "image": "@/assets/pressCrew.jpg",
+    "imageAlt": "Printing",
+    "active": ""
+  },
+  {
+    "id": 4,
+    "data": "step4",
+    "title": "Step 4: Delivery Day",
+    "description": "Come by our Monroe studio to pick up your order, or let us ship it straight to your door.",
+    "image": "@/assets/shipping.jpg",
+    "imageAlt": "Shipping",
+    "active": ""
+  }
+]

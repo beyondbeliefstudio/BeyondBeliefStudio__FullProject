@@ -1,0 +1,100 @@
+---
+import {Picture} from "astro:assets";
+
+const { items } = Astro.props;
+---
+
+<section aria-label="About Us Slider" id="about-slider">
+    <div class="container-md">
+        <div class="slider">
+            <div class="slider__wrapper">
+                {items.map((item: { src: string; alt?: string; id?: string }) => (
+                    <Picture src={item.src} alt={item.alt ?? null} class="slider__img" id={item.id} loading="eager" width={2000} height={1000} />
+                ))}
+            </div>
+            <div class="slider__nav">
+                {items.map((item: {id?: string }) => (
+                    <a href={`#${item.id}`} class:list={item.id === "slide-1" ? "active" : ""}></a>
+                ))}
+            </div>
+        </div>
+    </div>
+</section>
+
+<style lang="scss">
+.slider {
+    position: relative;
+    margin: 0 auto;
+    overflow: hidden;
+    border-radius: var(--border-radius-medium);
+
+    &__wrapper {
+        display: flex;
+        aspect-ratio: 16 / 9;
+        overflow-x: hidden;
+        scroll-snap-type: x mandatory;
+        scroll-behavior: smooth;
+    }
+
+    picture {
+        flex: 1 0 100%;
+        scroll-snap-align: start;
+    }
+
+    &__nav {
+        display: flex;
+        column-gap: 1rem;
+        position: absolute;
+        bottom: 1.25rem;
+        left: 50%;
+        transform: translateX(-50%);
+        z-index: 1;
+        background: #fff;
+        border-radius: 100px;
+        padding: .5rem 1rem;
+
+        a {
+            width: .75rem;
+            height: .75rem;
+            border-radius: 50%;
+            background-color: #000;
+            opacity: .75;
+            transition: all .2s ease-in-out;
+
+            &:hover,
+            &.active {
+                opacity: 1;
+                background-color: var(--brand-primary);
+            }
+        }
+    }
+}
+</style>
+
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  const slides = document.querySelectorAll(".slider__img");
+  const dots = document.querySelectorAll(".slider__nav a");
+
+  const observerOptions = {
+    root: document.querySelector(".slider__wrapper"),
+    threshold: 0.5, // at least 50% of the image is visible
+  };
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        // Remove active from all dots
+        dots.forEach(dot => dot.classList.remove("active"));
+        
+        // Match slide ID to href of the dot
+        const id = entry.target.id;
+        const activeDot = document.querySelector(`.slider__nav a[href="#${id}"]`);
+        if (activeDot) activeDot.classList.add("active");
+      }
+    });
+  }, observerOptions);
+
+  slides.forEach(slide => observer.observe(slide));
+});
+</script>

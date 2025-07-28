@@ -1,0 +1,185 @@
+---
+import { Image } from "astro:assets"
+import Links from "@shared/components/Links.astro";
+
+// Content
+import { navData } from '@/data/navData';
+import { baseData } from "@/data/siteData";
+
+// Images
+import wordmark from '@shared/assets/wordmark.png';
+import instagram from '@shared/assets/instagram.png';
+import facebook from '@shared/assets/facebook.png';
+import mail from '@shared/assets/mail.png';
+
+
+---
+<footer class="footer">
+    <div class="container-md">
+        <div class="content-full footer__content">
+            <div class="footer__info">
+                <Image src={wordmark} alt="beyond belief wordmark" class="footer__wordmark" />
+                <p class="small">{baseData.description}</p>
+                <div class="social-grid">
+                    <span class="social">
+                        <Image src={instagram} alt="Instagram Icon" />
+                    </span>
+                    <span class="social">
+                        <Image src={facebook} alt="Facebook Icon" />
+                    </span>
+                    <span class="social">
+                        <Image src={mail} alt="Mail Icon" />
+                    </span>
+                </div>
+            </div>
+            <div class="footer__links">
+                <div class="footer__col">
+                    <h3>Quick Links</h3>
+                    <nav class="footer__nav-links">
+                        {navData.map((i) => {
+                            return <Links variant="nav-link" href={i.href}>{i.title}</Links>
+                        })}
+                    </nav>
+                </div>
+                <div class="footer__col">
+                    <h3>Resources</h3>
+                    <nav class="footer__nav-links">
+                        <Links variant="nav-link" href="/get-a-quote">Get A Quote</Links>
+                        <Links variant="nav-link" href="/projects">Projects</Links>
+                        <Links variant="nav-link" href="/contact">Contact</Links>
+                        <Links variant="nav-link" href="/terms-and-service">Terms and Service</Links>
+                    </nav>
+                </div>
+                <div class="footer__col">
+                    <h3>Contact Us</h3>
+                    <nav class="footer__nav-links lowercase">
+                        <Links variant="nav-link" href="mailto:contact@beyondbeliefstudio.com">contact@beyondbeliefstudio.com</Links>
+                        <Links variant="nav-link" href="tel:9084199566">908-419-9566</Links>
+                        <Links variant="nav-link" href="https://maps.app.goo.gl/882Gwu6iqtMRrxBM6">4408 Chatterleigh Drive, Monroe, NC 28110</Links>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+<style lang="scss">
+.footer {
+    &__content {
+        gap: 2rem;
+        justify-content: space-between;
+        width: 100%;
+        display: flex;
+        text-align: left;
+    }
+    
+    &__info {
+        grid-column-gap: 5px;
+        grid-row-gap: 5px;
+        flex-flow: column;
+        width: 26%;
+        display: flex;
+    }
+    
+    &__links {
+        justify-content: space-between;
+        align-items: flex-start;
+        width: 67%;
+        display: flex;
+        max-width: 850px;
+    
+        h3 {
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+    }
+    
+    &__nav-links {
+        display: flex;
+        flex-direction: column;
+        gap: .5rem;
+    
+        .nav-link {
+            font-weight: 400;
+            text-transform: capitalize;
+            letter-spacing: 0px;
+            width: fit-content;
+        }
+        
+        &.lowercase .nav-link {
+            text-transform: initial !important;
+        }
+    }
+    
+    &__wordmark {
+        max-width: 100%;
+        background-size: contain;
+        height: fit-content;
+        max-width: 250px;
+        margin-bottom: 1rem;
+
+        @media screen and (max-width: 768px) {
+            max-width: 175px;
+            
+        }
+    }
+    
+    .social-grid {
+        display: flex;
+        gap: .5rem;
+    
+        .social {
+            background: var(--brand-primary);
+            border-radius: 100%;
+            height: 35px;
+            width: 35px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding-right: 1px;
+            transition: .25s ease-in-out all;
+            cursor: pointer;
+    
+            img {
+                width: 20px;
+                height: 20px;
+            }
+
+            &:hover {
+                background: var(--light-100);
+            }
+        }
+    }
+}
+
+@media (max-width: 1010px) {
+.footer {
+    &__info {
+        width: 50%;
+    }
+    &__links {
+        width: 50%;
+        flex-direction: column;
+        gap: 2rem;
+    }
+}
+}
+
+@media (max-width: 768px) {
+.footer {
+    &__content {
+        flex-direction: column;
+    }
+    &__info {
+        width: 100%;
+    }
+    &__links {
+        width: 100%;
+    }
+}
+}
+
+
+</style>

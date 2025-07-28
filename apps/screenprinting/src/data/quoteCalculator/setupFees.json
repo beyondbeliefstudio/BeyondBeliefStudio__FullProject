@@ -1,0 +1,32 @@
+[
+  {
+    "id": 1,
+    "colorCount": 1,
+    "price": 20
+  },
+  {
+    "id": 2,
+    "colorCount": 2,
+    "price": 40
+  },
+  {
+    "id": 3,
+    "colorCount": 3,
+    "price": 60
+  },
+  {
+    "id": 4,
+    "colorCount": 4,
+    "price": 80
+  },
+  {
+    "id": 5,
+    "colorCount": 5,
+    "price": 100
+  },
+  {
+    "id": 6,
+    "colorCount": 6,
+    "price": 120
+  }
+]

@@ -1,0 +1,101 @@
+---
+import { getCollection } from "astro:content";
+import ProductCard from "./ProductCard.astro";
+import Heading from "@shared/components/Heading.astro";
+const productCard = await getCollection("popularProducts");
+
+import garmentOptions from "../data/quoteCalculator/garmentOptions.json";
+
+
+---
+
+<section>
+    <div class="container-md column-main">
+        <div class="content-full">
+            <Heading tag="h2" size="xl" fontFamily="primary" marginBottom="xl">Browse our most popular products</Heading>
+            <div class="filter-tabs">
+                <button class="tab active" data-filter="all">All Categories</button>
+                {
+                    garmentOptions.map((option) => (
+                        <button class="tab" data-filter={option.label}>{option.label}</button>
+                    ))
+                }
+            </div>
+        </div>
+        <div class="content-full">
+            <div class="productGrid grid-auto-3">
+                {
+                    productCard.map((product) => (
+                        <div class="productCard__wrapper" data-category={product.data.itemCategory}>
+                            <ProductCard popularProducts={product} />
+                        </div>
+                    ))
+                }
+            </div>
+        </div>
+    </div>
+</section>
+
+<style lang="scss">
+.filter-tabs {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+    background: white;
+    padding: 0.75rem 1rem;
+    border-radius: 2rem;
+    width: fit-content;
+    margin: auto;
+}
+
+.tab {
+    background: transparent;
+    border: none;
+    padding: 0.5rem 1.25rem;
+    border-radius: 2rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-family: var(--secondary-family);
+    font-size: 1rem;
+
+    &:hover {
+        color: var(--dark-900--transparency);
+    }
+}
+
+.tab.active {
+  background: var(--brand-primary);
+  color: var(--dark-900);
+}
+
+// .productGrid {
+//     display: grid;
+//     grid-template-columns: repeat(auto-fill, minmax(min(360px, 100%), 1fr));
+//     gap: 1rem;
+// }
+</style>
+
+<script>
+const tabs = document.querySelectorAll(".tab");
+const cards = document.querySelectorAll(".productCard__wrapper");
+
+tabs.forEach(tab => {
+tab.addEventListener("click", () => {
+    document.querySelector(".tab.active").classList.remove("active");
+    tab.classList.add("active");
+
+    const filter = tab.getAttribute("data-filter");
+
+    cards.forEach(card => {
+    const category = card.getAttribute("data-category");
+    if (filter === "all" || category === filter) {
+        (card as HTMLElement).style.display = "block";
+    } else {
+        (card as HTMLElement).style.display = "none";
+    }
+    });
+});
+});
+</script>

@@ -1,0 +1,49 @@
+---
+import { getCollection } from "astro:content";
+import Heading from "@shared/components/Heading.astro";
+import TeamCard from "@/components/TeamCard.astro";
+
+const team = await getCollection("team");
+
+---
+
+<section id="team" aria-label="Meet the Team">
+    <div class="container-full">
+        <div class="content-full">
+            <Heading tag="h2" size="xl" fontFamily="primary" marginBottom="l">Printing With a Personal Touch</Heading>
+            <div class="scroller-image">
+                <ul class="scroller-inner-image">
+                    {
+                        team.map((person) => <TeamCard team={person}/>)
+                    }
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+
+<style lang="scss">
+.scroller-image {
+    max-width: 100%;
+    width: fit-content;
+    margin: auto;
+    overflow: hidden;
+}
+
+.scroller-image .scroller-inner-image {
+    margin: 0;
+    padding: 1rem 0;
+    list-style: none;
+    display: flex;
+    gap: 1rem;
+    width: max-content;
+    flex-wrap: nowrap;
+    animation: scroll 90s forwards linear infinite;
+}
+
+@keyframes scroll {
+    to {
+        transform: translate(calc(-50% - .5rem));
+    }
+}
+</style>

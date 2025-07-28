@@ -1,0 +1,48 @@
+---
+import BlogHero from "@/components/blog/BlogHero.astro";
+import RecentBlogs from "@/components/blog/RecentBlogs.astro";
+import Links from "@shared/components/Links.astro";
+import CTA from "@/components/CTA.astro";
+import Layout from "@/layouts/Layout.astro";
+import type { GetStaticPaths } from "astro";
+import { Picture } from "astro:assets";
+import { render } from "astro:content";
+import { getCollection } from "astro:content";
+
+export const getStaticPaths = (async () => {
+    const posts = await getCollection("blog", ({ data }) => !data.isDraft);
+    return posts.map((post) => ({
+        params: { page: post.data.slug },
+        props: { post },
+    }));
+}) satisfies GetStaticPaths;
+
+const { post } = Astro.props;
+
+const { Content } = await render(post)
+
+const { title, description, heroImage, imageAlt, pubDate, slug, tags, author } = post.data;
+
+---
+
+<Layout title={post.data.title} description={post.data.description}>
+
+<BlogHero title={title} subtitle={description} ariaLabel="Blog Post Hero" classes="" heroImage={heroImage} imageAlt={imageAlt} />
+
+<section class="blog" aria-label="Blog Post Content">
+    <div class="container-md blog__container">
+        <div class="content-full blog__content">
+            <Content />
+        </div>
+    </div>
+
+</section>
+
+<RecentBlogs post={post} />
+
+<CTA />
+
+</Layout>
+
+<style lang="scss" is:global>
+</style>

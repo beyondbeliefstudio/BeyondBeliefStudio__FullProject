@@ -1,0 +1,50 @@
+---
+import BlogCard from "@/components/blog/BlogCard.astro";
+import InternalHero from "@shared/components/InternalHero.astro";
+import CTA from "@/components/CTA.astro";
+import Layout from "@/layouts/Layout.astro";
+
+import type { GetStaticPaths } from "astro";
+import type { CollectionEntry } from "astro:content";
+import { getCollection } from "astro:content";
+import Pagination from "@/components/blog/Pagination.astro";
+export const getStaticPaths = (async( {paginate}) => {
+const posts = await getCollection("blog", ({data}) => !data.isDraft);
+    return paginate(
+        posts.sort((a, b) => new Date(b.data.pubDate).getTime() - new Date(a.data.pubDate).getTime()),
+        { pageSize: 12 }
+    );
+}) satisfies GetStaticPaths;
+
+const {page} = Astro.props;
+---
+
+<Layout title={`Blog - Page ${page.currentPage}`} description="Insights, tips, and behind-the-scenes looks at the screen printing world.">
+
+<InternalHero title="Blog" subtitle="Get insights, tips, and behind-the-scenes looks at the screen printing world—straight from the press. Whether you're placing your first order or running a brand, this blog's here to make you smarter (and your merch sharper)." aria-label="Blog" classes="" />
+
+<section>
+    <div class="container-md column-main">
+        <div class="content-full">
+            <div class="blog-grid grid-auto-3">
+                {page.data.map((post) => (
+                <BlogCard post={post} />
+                ))}
+            </div>
+        </div>
+        <div class="content-full">
+            <Pagination prev={page.url.prev} next={page.url.next} />
+        </div>
+    </div>
+</section>
+
+<CTA />
+
+
+
+    
+</Layout>
+
+<style lang="scss">
+
+</style>

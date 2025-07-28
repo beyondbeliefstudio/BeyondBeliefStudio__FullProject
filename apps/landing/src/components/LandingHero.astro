@@ -1,0 +1,153 @@
+---
+
+import Heading from "@shared/components/Heading.astro";
+
+---
+
+<section class="hero">
+    <div class="container-md hero__container hero__container">
+        <div class="content-md hero__column hero__content">
+            <Heading tag="h1" size="display" fontFamily="primary" marginBottom="l">Two Crafts. One Purpose.</Heading>
+            <Heading tag="h2" size="s" fontFamily="secondary" marginBottom="none">
+                We design custom websites and print custom apparel — all built by hand, all under one roof. <span>Choose your path below.</span>
+            </Heading>
+        </div>
+        <div class="content-lg hero__column">
+            <div class="hero__links" id="hero__links">
+                <span class="hero__indicator" id="hero__indicator"></span>
+                <a href="/screenprinting" class="hero__link" data-bg="/src/assets/printPress.jpg">
+                    <Heading tag="h3" size="m" fontFamily="primary" marginBottom="none">Screen Printing</Heading>
+                </a>
+                <a href="/webdesign" class="hero__link" data-bg="/src/assets/webDesignBg.jpg">
+                    <Heading tag="h3" size="m" fontFamily="primary" marginBottom="none">Web Design</Heading>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <div id="blob"></div>
+    <div id="blur"></div>
+</section>
+
+<style lang="scss">
+.hero {
+    overflow: hidden; 
+    position: relative;
+    height: fit-content;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    transition: background-image 0.5s ease-in-out;
+
+    &__container {
+        height: 100%;
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 2rem;
+    }
+
+    &__links {
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        background: #ffffff5e;
+        border-radius: 1000px;
+        backdrop-filter: blur(6px);
+    }
+
+    &__link {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 1.5rem 3rem;
+        font-size: 2rem;
+        font-weight: 700;
+        color: var(--dark-900);
+        background: none;
+        border: none;
+        border-radius: 2rem;
+        text-decoration: none;
+        position: relative;
+        z-index: 1;
+        cursor: pointer;
+    }
+
+    &__indicator {
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 100%;
+        border-radius: 1000px;
+        background: var(--brand-primary);
+        opacity: 0;
+        z-index: 0;
+        transition: left 0.25s cubic-bezier(0.4,0,0.2,1), width 0.25s cubic-bezier(0.4,0,0.2,1), opacity 0.2s;
+        pointer-events: none;
+    }
+    &__links:hover .hero__indicator {
+        opacity: 1;
+    }
+
+    &__content {
+        padding: 2rem 0px 2rem;
+        text-wrap: balance;
+    }
+
+    &__column {
+        position: relative;
+        height: fit-content;
+        z-index: 999;
+        margin: 0;
+    }
+}
+
+h2 {
+    font-weight: 400;
+    text-transform: inherit !important;
+    
+    span {
+        display: block;
+        margin-top: 1rem;
+        font-weight: 700;
+    }
+}
+
+</style>
+
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  const links = document.querySelectorAll('.hero__link');
+  const indicator = document.getElementById('hero__indicator');
+  const linksContainer = document.getElementById('hero__links');
+  let lastLink = null;
+  function moveIndicatorTo(link) {
+    const rect = link.getBoundingClientRect();
+    const parentRect = linksContainer.getBoundingClientRect();
+    indicator.style.width = rect.width + 'px';
+    indicator.style.left = (rect.left - parentRect.left) + 'px';
+    lastLink = link;
+  }
+  let isLinksHovered = false;
+  links.forEach(link => {
+    link.addEventListener('mouseenter', () => {
+      if (isLinksHovered) moveIndicatorTo(link);
+    });
+  });
+  linksContainer.addEventListener('mouseenter', () => {
+    isLinksHovered = true;
+  });
+  linksContainer.addEventListener('mouseleave', () => {
+    isLinksHovered = false;
+    indicator.style.width = '';
+    indicator.style.left = '';
+  });
+  window.addEventListener('resize', () => {
+    if (isLinksHovered && lastLink) moveIndicatorTo(lastLink);
+  });
+});
+</script>

@@ -1,0 +1,56 @@
+[
+  {
+    "id": 1,
+    "question": "What does 'Select Garment' mean?",
+    "answer": "Choose the type of garment you want printed, such as T-Shirt, Hoodie, Tank Top, etc. Each garment has different average pricing.",
+    "tag": "a1"
+  },
+  {
+    "id": 2,
+    "question": "What is 'Garment Quality'?",
+    "answer": "Select the quality level for your garment: Basic, Mid-Range, or Premium. These represent average price ranges and materials; final pricing may vary.",
+    "tag": "a2"
+  },
+  {
+    "id": 3,
+    "question": "What are the minimums?",
+    "answer": "Our minimum order is 24 pieces for single-color prints and 36 pieces for multi-color prints. These minimums help us keep your per-shirt price low and ensure the best print quality. If you have questions about your design or need a special exception, just ask!",
+    "tag": "a3"
+  },
+  {
+    "id": 4,
+    "question": "What are 'Front Print Colors' and 'Back Print Colors'?",
+    "answer": "Specify how many ink colors you want printed on the front and back of your garment. More colors increase the price and setup fees.",
+    "tag": "a4"
+  },
+  {
+    "id": 5,
+    "question": "Why do I need to enter my email?",
+    "answer": "We ask for your email and contact information so we can send your quote, get in touch to answer any questions, and help you get your order started. Our team may follow up to make sure you have everything you need!",
+    "tag": "a5"
+  },
+  {
+    "id": 6,
+    "question": "Is this quote final?",
+    "answer": "No, this is an estimate. Final pricing depends on artwork, garment selection, specialty requests, and other details.",
+    "tag": "a6"
+  },
+  {
+    "id": 7,
+    "question": "Can I order rush production?",
+    "answer": "Yes! Rush options are available for an additional fee. Please mention this in your follow-up with our team.",
+    "tag": "a7"
+  },
+  {
+    "id": 8,
+    "question": "What if I need help choosing options?",
+    "answer": "Contact our sales team or use the FAQ for guidance. We're happy to help you select the best options for your project!",
+    "tag": "a8"
+  },
+  {
+    "id": 9,
+    "question": "I want to add multiple items to my order (like t-shirts AND hoodies). How can I do that?",
+    "answer": "Great question! While our quote calculator shows pricing for one item type at a time, you can absolutely include multiple items in your order. Here's how:<ol><li><strong>Start with one item</strong> - Fill out the quote form for your primary item (e.g., 50 t-shirts with 1 color front/back)</li><li><strong>Get your initial quote</strong> - Submit the form to see pricing and move to the next step</li><li><strong>Add details for additional items</strong> - In the 'Additional Details' section of the contact form, simply list your other items (e.g., 'Also need 100 hoodies with 2 colors front/2 colors back')</li><li><strong>We'll handle the rest</strong> - Our team will provide a comprehensive quote covering all your items</li></ol><p><strong>Pro tip:</strong> Feel free to run the quote calculator multiple times with different items to get ballpark pricing for each part of your order!</p>",
+    "tag": "a9"
+  }
+]

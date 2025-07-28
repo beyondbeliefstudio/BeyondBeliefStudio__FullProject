@@ -1,0 +1,15 @@
+---
+import Links from '@shared/components/Links.astro';
+
+type Props = {
+    prev?: string;
+    next?: string;
+};
+
+const { prev, next } = Astro.props;
+---
+
+<div class="pagination">
+    {prev && <Links href={prev}>Previous</Links>}
+    {next && <Links href={next}>Next</Links>}
+</div>

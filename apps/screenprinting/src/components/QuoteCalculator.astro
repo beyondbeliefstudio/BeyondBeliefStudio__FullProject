@@ -1,0 +1,556 @@
+---
+import Buttons from "@shared/components/Buttons.astro";
+import Heading from "@shared/components/Heading.astro";
+
+import garmentQualityOptions from "../data/quoteCalculator/garmentQualityOptions.json";
+import garmentOptions from "../data/quoteCalculator/garmentOptions.json";
+import printPrices from "../data/quoteCalculator/printPrices.json";
+import setupFees from "../data/quoteCalculator/setupFees.json";
+import PopularProducts from "./PopularProducts.astro";
+import QuoteModal from "./QuoteModal.astro";
+
+---
+
+<section aria-label="Quote Calculator" class="quote-calculator">
+    <div class="container-md quote-calculator__container">
+        <div class="content-md quote-calculator__wrapper">
+            <div class="quote-calculator__intro">
+                <Heading tag="h2" size="xl" fontFamily="primary" marginBottom="s">Quote Estimate</Heading>
+                <p class="lead">Fill out the form below to get a quote for your custom garment printing project. We will get back to you as soon as possible with a detailed quote based on your specifications.</p>
+                <p class="lead"><b>Need help filling out the form?</b><br>Check out the <a class="inline-link" href="#quote-estimate-faq">"Quote Estimate FAQ"</a> guide below.</p>
+            </div>
+            <form class="quote-calculator__form">
+                <div class="form-grouping">
+                    <div class="form-group">
+                        <label for="garment">Select Garment</label>
+                        <select id="garment" name="garment" class="form-control">
+                            <option value="" disabled selected>Select a garment</option>
+                                {
+                                    garmentOptions.map(option => (
+                                        <option value={option.value}>{option.label}</option>
+                                    ))
+                                }
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="garmentQuality">Garment Quality</label>
+                        <select id="garmentQuality" name="garmentQuality" class="form-control">
+                            <option value="" disabled selected>Select quality</option>
+                                {
+                                    garmentQualityOptions.map(option => (
+                                        <option value={option.value}>{option.label}</option>
+                                    ))
+                                }
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div>
+                        <label for="quantity">How many do you need?</label>
+                        <small class="form-helper">Min: 24 items (1 color) • 36 items (multi-color)</small>
+                    </div>
+                    <div class="input-group">
+                        <button type="button" class="quote-calculator__input-button minus">
+                            <div class="circle">
+                                <span class="horizontal"></span>
+                            </div>
+                        </button>
+                        <input type="number" id="quantity" name="quantity" class="form-control" min="24" required placeholder="50" value="24" />
+                        <button type="button" class="quote-calculator__input-button plus">
+                            <div class="circle">
+                                <span class="horizontal"></span>
+                                <span class="vertical"></span>
+                            </div>
+                        </button>
+                    </div>
+                </div>
+                <div class="form-grouping">
+                    <div class="form-group">
+                        <label for="frontColors">Front Print Colors</label>
+                        <div class="input-group">
+                            <button type="button" class="quote-calculator__input-button minus">
+                                <div class="circle">
+                                    <span class="horizontal"></span>
+                                </div>
+                            </button>
+                            <input type="number" id="frontColors" name="frontColors" class="form-control" min="1" max="6" required placeholder="2" />
+                            <button type="button" class="quote-calculator__input-button plus">
+                                <div class="circle">
+                                    <span class="horizontal"></span>
+                                    <span class="vertical"></span>
+                                </div>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="backColors">Back Print Colors</label>
+                        <div class="input-group">
+                            <button type="button" class="quote-calculator__input-button minus">
+                                <div class="circle">
+                                    <span class="horizontal"></span>
+                                </div>
+                            </button>
+                            <input type="number" id="backColors" name="backColors" class="form-control" min="0" max="6" placeholder="2" />
+                            <button type="button" class="quote-calculator__input-button plus">
+                                <div class="circle">
+                                    <span class="horizontal"></span>
+                                    <span class="vertical"></span>
+                                </div>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <Buttons variant="secondary">Get Quote</Buttons>
+            </form>
+            <div class="quote-terms">
+                <h3>Pricing Tips & Terms</h3>
+                <ul>
+                    <li><strong>Order more to save more:</strong> Higher quantities reduce cost per item.</li>
+                    <li><strong>Use 1-2 colors per side:</strong> Best pricing is for simple prints.</li>
+                    <li><strong>Extended sizes (XXL+):</strong> Additional costs apply for larger sizes.</li>
+                    <li><strong>Tax:</strong> Added at checkout.</li>
+                    <li><strong>Garment Quality Pricing:</strong> Prices shown are <u>averages</u> for each quality group. Actual pricing may vary depending on the specific item selected and will be finalized with our sales team.</li>
+                    <li><strong>Additional Fees:</strong> Price may be higher if an underbase is needed for your design, or for other specialty requests.</li>
+                    <li><strong>This quote is not final:</strong> All quotes are subject to change based on final artwork, garment selection, and other requirements.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- Quote Modal -->
+     <QuoteModal />
+
+</section>
+
+<section class="average-garment-prices bg-primary" aria-label="Average Garment Prices">
+    <div class="container-md average-garment-prices__container">
+        <div class="content-md">
+            <Heading tag="h2" size="xl" fontFamily="primary" marginBottom="s">Average Garment Blank Prices</Heading>
+            <p class="lead">These are average prices for each garment quality option. Actual prices may vary based on specific items and quantities.</p>
+        </div>
+        <div class="content-md">
+            <div class="garment-price-grid__wrapper">
+                {
+                    garmentOptions.map(option => (
+                        <div class="garment-card">
+                            <Heading tag="h3" size="m" fontFamily="primary" marginBottom="m">{option.label}</Heading>
+                            <ul>
+                                <li><span class="quality-label">Basic:</span> ${option.avgPriceBasic}</li>
+                                <li><span class="quality-label">Mid-Range:</span> ${option.avgPriceMidRange}</li>
+                                <li><span class="quality-label">Premium:</span> ${option.avgPricePremium}</li>
+                            </ul>
+                        </div>
+                    ))
+                }
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+<script type="application/json" id="garmentOptions-data" set:html={JSON.stringify(garmentOptions)}></script>
+<script type="application/json" id="garmentQualityOptions-data" set:html={JSON.stringify(garmentQualityOptions)}></script>
+<script type="application/json" id="printPrices-data" set:html={JSON.stringify(printPrices)}></script>
+<script type="application/json" id="setupFees-data" set:html={JSON.stringify(setupFees)}></script>
+
+
+<style lang="scss">
+.inline-link {
+    color: var(--dark-900);
+    text-decoration: underline;
+    cursor: pointer;
+
+    &:hover {
+        color: var(--dark-900--transparency);
+    }
+}
+
+.average-garment-prices {
+    &__container {
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+    }
+}
+
+.garment-price-grid__wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    justify-content: center;
+}
+.garment-card {
+    background: var(--light-100);
+    border-radius: var(--border-radius-medium);
+    padding: 1.5rem 1.5rem 1rem;
+    min-width: 290px;
+    text-align: center;
+    flex-grow: 1;
+}
+.quality-label {
+    font-weight: bold;
+}
+.garment-card h5 {
+    margin-bottom: 0.75rem;
+}
+.garment-card ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+.garment-card li {
+    margin-bottom: 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+
+.quote-terms {
+    margin: 0rem auto;
+    max-width: 640px;
+    padding: 2rem;
+}
+.quote-terms h3 {
+    margin-bottom: 1rem;
+}
+.quote-terms ul {
+    list-style: disc;
+    padding-left: 0;
+}
+.quote-terms li {
+    margin-bottom: 0rem;
+    font-size: .8rem;
+    text-align: left;
+    opacity: .7;
+}
+
+
+
+
+.quote-calculator {
+    &__container {
+        padding-top: 0;
+        position: relative;
+        z-index: 999;
+        margin-top: -10rem;
+    }
+
+    &__intro {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-bottom: 1rem;
+    }
+    
+    &__wrapper {
+        width: 100%;
+        background: #fff;
+        padding: 2rem;
+        border-radius: 16px;
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+
+        @media screen and (max-width: 768px) {
+            padding: 2rem 1rem 1rem;
+        }
+    }
+
+    &__form {
+        width: 100%;
+        text-align: center;
+        display: grid;
+        gap: 1rem;
+        max-width: 640px;
+        margin: 0 auto;
+    }
+
+    .form-helper {
+        font-size: 0.75rem;
+        color: var(--dark-600, #666);
+        opacity: 0.8;
+        font-style: italic;
+        display: block;
+    }
+
+    .input-group {
+        display: flex;
+        flex-direction: row;
+        grid-gap: .5rem;
+        align-items: center;
+        justify-content: center;
+
+        @media (max-width: 768px) {
+            display: grid;
+            justify-content: space-between;
+            grid-template-columns: auto 1fr auto;
+        }
+    }
+
+    input[type="number"] {
+        width: 100px;
+        text-align: center;
+
+        @media (max-width: 768px) {
+            width: auto;
+        }
+    }
+
+    select, input {
+        font-family: var(--secondary-family);
+    }
+
+    &__input-button {
+        background: none;
+        cursor: pointer;
+        padding: 0;
+        width: 35px;
+        height: 35px;
+        position: relative;
+        border: 0px;
+
+        .circle {
+            background: var(--brand-primary);
+            border-radius: 50%;
+            width: 100%;
+            height: 100%;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background-color 0.3s ease;
+        }
+
+        .horizontal,
+        .vertical {
+            position: absolute;
+            width: 18px;
+            height: 3px;
+            background-color: var(--dark-900);
+            transition: background-color 0.3s ease;
+            border-radius: 2px;
+        }
+
+        .horizontal {
+            opacity: 1;
+        }
+
+        .vertical {
+            transform: rotate(90deg);
+            transform-origin: center;
+            transition: .25s ease-in-out all;
+        }
+
+        &:hover {
+            .circle {
+                background: var(--dark-900)
+            }
+
+            .horizontal,
+            .vertical {
+                background-color: var(--light-100);
+            }
+        
+        }
+    }
+
+    .form-group {
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+
+        label {
+            font-weight: bold;
+        }
+
+        input, select {
+            padding: 0.5rem;
+            border-radius: 8px;
+            border: 1px solid var(--light-200);
+            font-size: 1rem;
+        }
+    }
+
+    .form-grouping {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-gap: 3rem;
+
+        @media (max-width: 768px) {
+            grid-template-columns: 1fr;
+            grid-gap: 1rem;
+        }
+    }
+
+    button {
+        align-self: center;
+    }
+}
+
+/* Hide number input spinners for Chrome, Safari, Edge */
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Hide number input spinners for Firefox */
+input[type="number"] {
+  -moz-appearance: textfield;
+}
+</style>
+
+
+
+
+
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    const garmentOptions = JSON.parse(document.getElementById('garmentOptions-data').textContent);
+    const garmentQualityOptions = JSON.parse(document.getElementById('garmentQualityOptions-data').textContent);
+    const printPrices = JSON.parse(document.getElementById('printPrices-data').textContent);
+    const setupFees = JSON.parse(document.getElementById('setupFees-data').textContent);
+
+
+
+
+    // Increment/Decrement logic for frontColors and backColors
+    document.querySelectorAll('.input-group').forEach(group => {
+    const minusBtn = group.querySelector('.quote-calculator__input-button.minus');
+    const plusBtn = group.querySelector('.quote-calculator__input-button.plus');
+    const input = group.querySelector('input[type="number"]');
+
+    if (minusBtn && input) {
+        minusBtn.addEventListener('click', () => {
+        let min = parseInt((input as HTMLInputElement).min) || 0;
+        let value = parseInt((input as HTMLInputElement).value) || min;
+        if (value > min) (input as HTMLInputElement).value = String(value - 1);
+        });
+    }
+    if (plusBtn && input) {
+        plusBtn.addEventListener('click', () => {
+        let max = parseInt((input as HTMLInputElement).max) || 99;
+        let value = parseInt((input as HTMLInputElement).value) || 0;
+        if (value < max) (input as HTMLInputElement).value = String(value + 1);
+        });
+    }
+    });
+
+    function calculateQuote(event) {
+        event.preventDefault();
+
+        const garmentSelect = document.getElementById("garment") as HTMLSelectElement;
+        const garmentQualitySelect = document.getElementById("garmentQuality") as HTMLSelectElement;
+        const quantityInput = document.getElementById("quantity") as HTMLSelectElement;
+        const frontColorsInput = document.getElementById("frontColors") as HTMLSelectElement;
+        const backColorsInput = document.getElementById("backColors") as HTMLSelectElement;
+
+        const garment = garmentSelect.value;
+        const garmentQuality = garmentQualitySelect.value;
+        const quantity = parseInt(quantityInput.value);
+        const frontColors = parseInt(frontColorsInput.value);
+        const backColors = parseInt(backColorsInput.value) || 0;
+
+        // Condition 1: Minimum quantity
+        if (quantity < 24) {
+        alert("The minimum is 24 items for 2 or more colors.");
+        return;
+        }
+
+        // Condition 2: Only 1 color allowed for <36 quantity
+        if (quantity < 36 && (frontColors !== 1 || (backColors > 0 && backColors !== 1))) {
+        alert("For orders less than 36 items, only 1 color is allowed for Front and Back Print.");
+        return;
+        }
+
+        if (!garment || !garmentQuality || !quantity || !frontColors) {
+        alert("Please fill in all required fields.");
+        return;
+        }
+
+        // Find garment option
+        const garmentOption = garmentOptions.find(option => option.value === garment);
+        if (!garmentOption) {
+        alert("Garment not found.");
+        return;
+        }
+
+        // Get garment price based on quality
+        let garmentPrice = 0;
+        switch (garmentQuality) {
+        case "basic":
+            garmentPrice = garmentOption.avgPriceBasic;
+            break;
+        case "midrange":
+            garmentPrice = garmentOption.avgPriceMidRange;
+            break;
+        case "premium":
+            garmentPrice = garmentOption.avgPricePremium;
+            break;
+        default:
+            alert("Invalid garment quality selected.");
+            return;
+        }
+
+        // Find the correct print price bracket
+        let priceBracket = printPrices.find(
+        bracket => quantity >= bracket.minCount && quantity <= bracket.maxCount
+        );
+        if (!priceBracket) {
+        priceBracket = printPrices[printPrices.length - 1];
+        }
+
+        // Get print prices per color
+        const frontPrintPrice = priceBracket.pricePerColor[frontColors - 1] || 0;
+        const backPrintPrice = backColors > 0 ? priceBracket.pricePerColor[backColors - 1] || 0 : 0;
+
+        // Find setup fee for front colors
+        const frontSetup = setupFees.find(fee => fee.colorCount === frontColors);
+        const frontSetupFee = frontSetup ? frontSetup.price : 0;
+
+        // Find setup fee for back colors (only if backColors > 0)
+        const backSetup = setupFees.find(fee => fee.colorCount === backColors);
+        const backSetupFee = backColors > 0 && backSetup ? backSetup.price : 0;
+
+        // Total setup fee
+        const setupFee = frontSetupFee + backSetupFee;
+
+        // Debugging logs
+        console.log("garmentOption:", garmentOption);
+        console.log("garmentPrice:", garmentPrice);
+        console.log("priceBracket:", priceBracket);
+        console.log("frontPrintPrice:", frontPrintPrice);
+        console.log("backPrintPrice:", backPrintPrice);
+        console.log("setupFee:", setupFee);
+        // Calculate total
+        const total = (garmentPrice + frontPrintPrice + backPrintPrice) * quantity + setupFee;
+        const costPerItem = total / quantity;
+
+        // Instead of showing modal, redirect to results page with quote data
+        const queryParams = new URLSearchParams({
+            garment: garment,
+            garmentQuality: garmentQuality,
+            quantity: quantity.toString(),
+            frontColors: frontColors.toString(),
+            backColors: backColors.toString(),
+            total: total.toFixed(2),
+            costPerItem: costPerItem.toFixed(2)
+        });
+
+        window.location.href = `/quote-results?${queryParams.toString()}`;
+    }
+
+    // ADD THIS: Event listener for form submission
+    const form = document.querySelector('.quote-calculator__form');
+    if (form) {
+        form.addEventListener('submit', calculateQuote);
+    }
+});
+
+
+
+
+
+</script>

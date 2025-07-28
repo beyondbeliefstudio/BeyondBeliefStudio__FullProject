@@ -1,0 +1,58 @@
+[
+  {
+    "id": 1,
+    "name": "Chris Nervegna",
+    "position": "Press Operator",
+    "image": "@/assets/reachOut.jpg",
+    "imageAlt": "strategy and sales team member"
+  },
+  {
+    "id": 2,
+    "name": "Chris Nervegna",
+    "position": "Screen Technician",
+    "image": "@/assets/reachOut.jpg",
+    "imageAlt": "strategy and sales team member"
+  },
+  {
+    "id": 3,
+    "name": "Chris Nervegna",
+    "position": "Production Manager",
+    "image": "@/assets/reachOut.jpg",
+    "imageAlt": "strategy and sales team member"
+  },
+  {
+    "id": 4,
+    "name": "Chris Nervegna",
+    "position": "Art Director / Graphic Designer",
+    "image": "@/assets/reachOut.jpg",
+    "imageAlt": "strategy and sales team member"
+  },
+  {
+    "id": 5,
+    "name": "Chris Nervegna",
+    "position": "Sales Representative",
+    "image": "@/assets/reachOut.jpg",
+    "imageAlt": "strategy and sales team member"
+  },
+  {
+    "id": 6,
+    "name": "Chris Nervegna",
+    "position": "Quality Control Inspector",
+    "image": "@/assets/reachOut.jpg",
+    "imageAlt": "strategy and sales team member"
+  },
+  {
+    "id": 7,
+    "name": "Chris Nervegna",
+    "position": "Fulfillment / Packaging Specialist",
+    "image": "@/assets/reachOut.jpg",
+    "imageAlt": "strategy and sales team member"
+  },
+  {
+    "id": 8,
+    "name": "Chris Nervegna",
+    "position": "Marketing & Social Media Coordinator",
+    "image": "@/assets/reachOut.jpg",
+    "imageAlt": "strategy and sales team member"
+  }
+]

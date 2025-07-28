@@ -1,0 +1,38 @@
+---
+import Heading from "@shared/components/Heading.astro";
+import Links from "@shared/components/Links.astro";
+
+
+---
+
+<section class="CTA">
+    <div class="container-md bg-dark CTA__container">
+        <div class="content-lg content-light CTA-content">
+            <Heading tag='h2' size='xl' fontFamily='primary' marginBottom='m'>Let’s Make Something You’re Proud to Wear</Heading>
+            <p class="large">Whether you’re new to custom tees or lining up your tenth merch drop, we keep the process clear and quick. Expect sharp prints, fast turnarounds, and a local crew that has your back.</p>
+            <div class="btn-group">
+                <Links href={"/get-a-quote"}>Get A Quote</Links>
+            </div>
+        </div>
+        <div id="blobCTA"></div>
+        <div id="blur"></div>
+    </div>
+</section>
+
+<style lang="scss">
+
+.CTA {
+    &__container {
+        border-radius: var(--border-radius-medium);
+        overflow: hidden;
+        padding: var(--_spacing---section-space--main);
+    }
+
+    &-content {
+        position: relative;
+        z-index: 999;
+        text-wrap: balance;
+    }
+}
+
+</style>

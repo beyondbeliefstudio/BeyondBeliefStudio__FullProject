@@ -1,0 +1,22 @@
+---
+import InternalHero from "@shared/components/InternalHero.astro";
+import Layout from "@/layouts/Layout.astro";
+
+import {Content as Terms} from "@/data/termsAndService.md";
+
+---
+
+<Layout title="Terms and Service">
+
+<InternalHero title="Terms and Service" subtitle="Thank you for choosing Beyond Belief Studio. These Terms & Conditions outline the expectations, responsibilities, and policies for working with us. By placing an order, you agree to the terms outlined below." aria-label="Terms and Service"/>
+
+<section class="terms">
+    <div class="container-md">
+        <div class="content-md terms__content">
+            <Terms />
+        </div>
+    </div>
+</section>
+
+
+</Layout>

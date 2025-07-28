@@ -1,0 +1,49 @@
+---
+import InternalHero from "@shared/components/InternalHero.astro";
+import Layout from "@/layouts/Layout.astro";
+import Gallery from "@/components/Gallery.astro";
+import CTA from "@/components/CTA.astro";
+
+
+// Import images for the gallery
+import rollingHillBag from "@/assets/rollingHillBag.jpeg";
+import teachAndEquip from "@/assets/teachAndEquip.jpeg";
+import jjTrimming from "@/assets/jjTrimming.jpeg";
+import scubaFull from "@/assets/scubaFull.jpeg";
+import tristateFightClub from "@/assets/tristateFightClub.jpeg";
+import wilson from "@/assets/wilson.jpeg";
+import cafeBien from "@/assets/cafeBien.jpeg";
+import azColor from "@/assets/azColor.jpeg";
+import victoryLap from "@/assets/victoryLap.jpeg";
+import evangelOutline from "@/assets/evangelOutline.jpeg";
+import doNotConform from "@/assets/doNotConform.jpeg";
+import touringCrew from "@/assets/touringCrew.jpeg";
+
+// Data for Image Slider
+const projects = [
+  { src: rollingHillBag, alt: "travel photo", id: "slide-1" },
+  { src: jjTrimming, alt: "travel photo", id: "slide-2" },
+  { src: teachAndEquip, alt: "travel photo", id: "slide-3" },
+  { src: scubaFull, alt: "travel photo", id: "slide-4" },
+  { src: tristateFightClub, alt: "travel photo", id: "slide-5" },
+  { src: wilson, alt: "travel photo", id: "slide-6" },
+  { src: cafeBien, alt: "travel photo", id: "slide-7" },
+  { src: azColor, alt: "travel photo", id: "slide-8" },
+  { src: victoryLap, alt: "travel photo", id: "slide-9" },
+  { src: evangelOutline, alt: "travel photo", id: "slide-10" },
+  { src: doNotConform, alt: "travel photo", id: "slide-11" },
+  { src: touringCrew, alt: "travel photo", id: "slide-12" },
+];
+
+
+---
+
+<Layout title="Projects">
+
+<InternalHero title="Projects" subtitle="Explore our latest projects and see how we can help you achieve your goals." />
+
+<Gallery items={projects}/>
+
+<CTA />
+
+</Layout>

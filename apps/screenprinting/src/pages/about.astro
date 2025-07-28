@@ -1,0 +1,117 @@
+---
+import Layout from "@/layouts/Layout.astro";
+import {Picture} from "astro:assets";
+import { Image } from "astro:assets";
+
+import printPress from "@/assets/printPress.jpg";
+import rewindPress from "@/assets/rewindPress.jpeg"
+import basement from "@/assets/basement.jpg"
+import Heading from "@shared/components/Heading.astro";
+import Team from "@/components/Team.astro";
+import FAQ from "@shared/components/FAQ.astro";
+import CTA from "@/components/CTA.astro";
+import ImageSlider from "@/components/ImageSlider.astro";
+import InternalHero from "@shared/components/InternalHero.astro";
+import SplitOverlay from "@shared/components/SplitOverlay.astro";
+
+
+
+
+// Data for FAQ section
+import { getCollection } from 'astro:content';
+const faq = await getCollection('aboutFAQ');
+
+const faqData = faq.map((item) => ({
+  tag: item.data.tag,
+  question: item.data.question,
+  answer: item.data.answer
+}));
+
+// Data for "What We're About" section
+const whatWereAbout = [
+  {
+    title: "Local Always Wins",
+    description: "We’re proud to be rooted in Monroe, NC. When you work with us, you're supporting a real local business, not some faceless print broker."
+  },
+  {
+    title: "Real Quality, No Fluff",
+    description: "We print on the same gear and blanks used by national brands. Quality is everything — and we take it personally."
+  },
+  {
+    title: "We Move Fast",
+    description: "Need it by next weekend? We’ve got you. Our typical turnaround is 7–10 business days, and rush jobs are always on the table."
+  },
+  {
+    title: "We’re Print Nerds",
+    description: "Screen printing isn’t just what we do — it’s what we love. From color separations to specialty inks, we geek out over the details so you don’t have to."
+  }
+];
+
+// Data for Image Slider
+const sliderImages = [
+  { src: printPress, alt: "travel photo", id: "slide-1" },
+  { src: printPress, alt: "travel photo", id: "slide-2" },
+  { src: printPress, alt: "travel photo", id: "slide-3" },
+  { src: printPress, alt: "travel photo", id: "slide-4" }
+];
+
+
+
+
+---
+
+<Layout title="About Us">
+
+<InternalHero title="About Us" subtitle="We're a small team doing big things for other small teams — schools, churches, businesses, breweries, artists, fundraisers, and anyone who wants to wear their message with pride." ariaLabel="Hero About-Us" />
+
+<SplitOverlay title="Your New Favorite Print Shop" imgSrc={rewindPress} imgAlt="Photo of Press" orientation="">
+    <p>What began as a weekend side project in a garage has grown into a full‑on print studio serving Monroe, NC and customers nationwide. Beyond Belief Studio delivers sharp screen prints with fast turnarounds, fair pricing, and a friendly, personal touch.</p>
+    <p>We keep every job under our own roof and never cut corners. Each order gets the same care and attention, whether it’s a hundred tees for a local school or a limited drop for your brand.</p>
+</SplitOverlay>
+
+<SplitOverlay title="Our Story" imgSrc={basement} imgAlt="Photo of Press" orientation="left" background="bg-white">
+    <p>Beyond Belief began in 2016 as a basement hobby in New Jersey where family, faith, and a single DIY press shaped every shirt. The side project soon grew into a screen printing and design studio driven by a love for community and quality. </p>
+    <p>In 2023 we relocated to Monroe, NC and quickly became the go‑to “merch guys” for local schools, churches, small businesses, and non‑profits. From Chris’s first homemade screens to the pro setup we run today, our mission stays the same: make gear people are proud to wear and keep the process friendly and reliable.</p>
+</SplitOverlay>
+
+<!-- <ImageSlider items={sliderImages} /> -->
+
+<section class="bg-primary" id="what-were-about" aria-label="What We're About">
+    <div class="container-md">
+        <div class="content-md">
+            <Heading tag="h2" size="xl" fontFamily="primary" marginBottom="xl">What We’re About</Heading>
+        </div>
+        <div class="content-full grid grid-auto-4">
+            {whatWereAbout.map((item) => (
+                <div class="card">
+                    <Heading tag="h3" size="m" fontFamily="primary" marginBottom="s">{item.title}</Heading>
+                    <p>{item.description}</p>
+                </div>
+            ))}
+        </div>
+    </div>
+</section>
+
+<Team />
+
+<FAQ faq={faqData}/>
+
+<CTA />
+
+</Layout>
+
+<style lang="scss">
+#what-were-about {
+    .card {
+        background-color: var(--light-100);
+        border-radius: var(--border-radius-medium);
+        padding: 1.5rem 1.5rem .5rem;
+        text-wrap: balance;
+        text-align: left;
+
+        h3 {
+            font-size: 1.5rem;
+        }
+    }
+}
+</style>

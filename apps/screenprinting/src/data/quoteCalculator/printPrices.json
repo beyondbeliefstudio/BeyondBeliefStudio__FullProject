@@ -1,0 +1,44 @@
+[
+  {
+    "id": 1,
+    "minCount": 12,
+    "maxCount": 23,
+    "pricePerColor": [5.5, 6.5, 7.5, 8.5, 9.5, 10.5]
+  },
+  {
+    "id": 2,
+    "minCount": 24,
+    "maxCount": 47,
+    "pricePerColor": [4.5, 5.5, 6.5, 7.5, 8.5, 9.5]
+  },
+  {
+    "id": 3,
+    "minCount": 48,
+    "maxCount": 71,
+    "pricePerColor": [4, 5, 6, 7, 8, 9]
+  },
+  {
+    "id": 4,
+    "minCount": 72,
+    "maxCount": 99,
+    "pricePerColor": [3.5, 4.5, 5.5, 6.5, 7.5, 8.5]
+  },
+  {
+    "id": 5,
+    "minCount": 100,
+    "maxCount": 149,
+    "pricePerColor": [3, 4, 5, 6, 7, 8]
+  },
+  {
+    "id": 6,
+    "minCount": 150,
+    "maxCount": 199,
+    "pricePerColor": [2.5, 3.5, 4.5, 5.5, 6.5, 7.5]
+  },
+  {
+    "id": 7,
+    "minCount": 200,
+    "maxCount": 249,
+    "pricePerColor": [2, 3, 4, 5, 6, 7]
+  }
+]

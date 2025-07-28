@@ -1,0 +1,320 @@
+---
+import Hero from '@shared/components/Hero.astro';
+import Layout from '@/layouts/Layout.astro';
+import {Picture} from "astro:assets";
+import { Image } from "astro:assets";
+import { Icon } from 'astro-icon/components';
+
+
+import printPress from "@/assets/printPress.jpg";
+import scuba from "@/assets/scubaPrint.jpg";
+import tote from "@/assets/toteBag.jpg";
+import vest from "@/assets/ffVest.jpg";
+import az from "@/assets/az.jpeg";
+
+import azLogo from "@/assets/logoArizona.svg";
+import bienLogo from "@/assets/logoBien.svg";
+import logoTGS from "@/assets/logoTGS.svg";
+import logoArborbrook from "@/assets/logoArborbrook.png";
+import logoCSHL from "@/assets/logoCSHL.png";
+import logoRollingHill from "@/assets/logoRollingHill.png";
+
+
+
+import Links from '@shared/components/Links.astro';
+import Reviews from '@/components/Reviews.astro';
+import CTA from '@/components/CTA.astro';
+import Heading from '@shared/components/Heading.astro';
+import ScrollingText from '@shared/components/ScrollingText.astro';
+import OrderingProcess from '@/components/OrderingProcess.astro';
+
+---
+
+<Layout title="Home">
+
+
+<!-- HERO -->
+<Hero />
+
+
+<!-- PRINTING EXPERTS -->
+<section id="printing-experts">
+    <div class="container-md column-main">
+        <div class="content-md">
+            <Heading tag="h2" size="xl" fontFamily="primary" marginBottom="m">Your Local Screen Printing Experts</Heading>
+            <p>We live and breathe ink, treating every shirt as a blank canvas ready for something memorable. We focus 100% on screen printing so you get sharp, consistent prints that last wash after wash.</p>
+        </div>
+        <div class="content-full">
+            <div class="card-grid grid-auto-3">
+                <div class="card">
+                    <span class="icon"><Icon name="fastIcon" /></span>
+                    <Heading tag="h3" size="s" fontFamily="secondary" marginBottom='s'>Fast Turnarounds</Heading>
+                    <p>Most orders are completed within 7–10 business days. Need it sooner? We’ll see what we can do.</p>
+                </div>
+                <div class="card">
+                    <span class="icon"><Icon name="localIcon" /></span>
+                    <Heading tag="h3" size="s" fontFamily="secondary" marginBottom='s'>Local to Monroe, NC</Heading>
+                    <p>We're your neighborhood print shop. Work directly with a real team who cares about your project as much as you do.</p>
+                </div>
+                <div class="card">
+                    <span class="icon"><Icon name="shirtIcon" /></span>
+                    <Heading tag="h3" size="s" fontFamily="secondary" marginBottom='s'>Minimums Made Simple</Heading>
+                    <p>Just 24 pieces for single-color designs, and 36 for multi-color prints.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+<!-- SCROLLING TEXT -->
+<ScrollingText>
+    <Heading tag="h2" size="xl" fontFamily="primary" marginBottom="none">Fast, Local, and Beyond Belief Good.</Heading>
+</ScrollingText>
+
+
+
+
+<!-- ORDERING PROCESS -->
+<section class="bg-white">
+    <div class="container-md column-main">
+        <div class="content-md">
+            <Heading tag='h2' size='xl' fontFamily='primary' marginBottom='m'>Getting Started Is Easy.</Heading>
+            <p>Ordering should feel simple, almost fun. Here’s the four‑step playbook that gets your gear from idea to doorstep in record time.</p>
+        </div>
+        <div class="content-full">
+            <OrderingProcess />
+        </div>
+    </div>
+</section>
+
+
+
+
+<!-- GALLERY -->
+<section>
+    <div class="container-md column-main">
+        <div class="content-md">
+            <Heading tag='h2' size='xl' fontFamily='primary' marginBottom='m'>Shirts That Stand Out, Prints That Stick</Heading>
+            <p>We’ve printed thousands of shirts for schools, businesses, nonprofits, and local legends—each one with the same attention to detail and quality. Whether it’s a bold front print or full team merch, we bring your vision to life.</p>
+            <Links href={"/projects"}>View Projects</Links>
+        </div>
+
+        <div class="content-full">
+            <section class="gallery">
+                <div class="gallery-item">
+                    <Picture src={vest} alt="travel photo" class="hero__img" loading="eager" width={1300} height={1000} />
+                </div>
+                <div class="gallery-item tall">
+                    <Picture src={az} alt="travel photo" class="hero__img" loading="eager" width={1300} height={1000} />
+                </div>
+                <div class="gallery-item">
+                    <Picture src={printPress} alt="travel photo" class="hero__img" loading="eager" width={1300} height={1000} />
+                </div>
+                <div class="gallery-item">
+                    <Picture src={scuba} alt="travel photo" class="hero__img" loading="eager" width={1300} height={1000} />
+                </div>
+                <div class="gallery-item">
+                    <Picture src={tote} alt="travel photo" class="hero__img" loading="eager" width={1300} height={1000} />
+                </div>
+            </section>
+        </div>
+    </div>
+
+    <!-- Gallery Modal -->
+    <div id="gallery-modal" class="gallery-modal" style="display:none;">
+        <span class="gallery-modal-close">&times;</span>
+        <img id="gallery-modal-img" src="/" alt="Gallery Image" />
+    </div>
+</section>
+
+
+<!-- COMPANIES -->
+<section class="bg-primary">
+    <div class="container-md column-main">
+        <div class="content-md">
+            <span class="flag">
+                <Icon name="icon-flag" />
+            </span>
+            <Heading tag='h2' size='xl' fontFamily='primary' marginBottom='m'>Built for Small Teams, Big Events, and Everything in Between</Heading>
+            <p>We work with all types of clients—from local restaurants to youth sports teams, church groups to corporate events. Whether you’re ordering for your staff or building a brand, we make it easy to get premium custom tees with quick turnaround and friendly service.</p>
+        </div>
+        <div class="content-full">
+            <Heading tag='h3' size='l' fontFamily='primary' marginBottom='l'>Trusted by Local Teams, Schools & Businesses</Heading>
+            <div class="logo-grid grid-auto-4">
+                <div class="logo-item">
+                    <Image src={azLogo} alt="Arizona Logo" />
+                </div>
+                <div class="logo-item">
+                    <Image src={logoArborbrook} alt="Arborbrook Logo" />
+                </div>
+                <div class="logo-item">
+                    <Image src={logoCSHL} alt="CSHL Logo" />
+                </div>
+                <div class="logo-item">
+                    <Icon name="logo-evangel" />
+                </div>
+                <div class="logo-item">
+                    <Icon name="logo-gsl" />
+                </div>
+                <div class="logo-item">
+                    <Image src={logoRollingHill} alt="Rolling Hill Logo" />
+                </div>
+                <div class="logo-item">
+                    <Image src={logoTGS} alt="TGS Logo" />
+                </div>
+                <div class="logo-item">
+                    <Icon name="logo-wilson" />
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<!-- REVIEWS -->
+<Reviews />
+
+
+<!-- CALL TO ACTION -->
+<CTA />
+
+</Layout>
+
+
+
+
+
+
+<style lang="scss">
+
+.flag svg {
+    height: 100px;
+    width: 100px;
+    object-fit: contain;
+    margin: 0 0 2rem;
+}
+
+
+#printing-experts {
+    span.icon {
+        background: var(--brand-primary);
+        width: 80px;
+        height: 80px;
+        display: block;
+        margin: 0 auto 1.5rem;
+        border-radius: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    
+        svg {
+            width: 50px;
+            height: 50px;
+        }
+    }
+
+    .card {
+        background: var(--light-100);
+        border-radius: var(--border-radius-medium);
+        padding: 2rem;
+    }
+}
+
+
+// LOGO GRID
+.logo-grid {
+    @media screen and (max-width: 1200px) {
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+    }
+}
+
+.logo-item {
+    background-color: #fff;
+    border-radius: var(--border-radius-medium);
+    padding: 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    &:hover {
+        img,svg {
+            transform: scale(1.05);
+            opacity: .8;
+        }
+    }
+
+    @media screen and (max-width: 768px) {
+        padding: 1rem;
+    }
+
+    img, svg {
+        max-width: 200px;
+        height: 100%;
+        width: 100%;
+        max-height: 150px;
+        object-fit: contain;
+        transition: transform 0.3s ease-in-out;
+    }
+}
+
+
+</style>
+
+<!-- <script>
+
+// For Astro <Picture> component, select the <img> inside each .gallery-item
+document.querySelectorAll('.gallery-item').forEach(item => {
+  const img = item.querySelector('img');
+  if (img) {
+    img.addEventListener('click', function() {
+      const modal = document.getElementById('gallery-modal');
+      const modalImg = document.getElementById('gallery-modal-img');
+      modalImg.src = (img instanceof HTMLImageElement ? img.src : '');
+      modal.style.display = 'flex';
+    });
+  }
+});
+
+document.querySelector('.gallery-modal-close').addEventListener('click', function() {
+  document.getElementById('gallery-modal').style.display = 'none';
+});
+
+document.getElementById('gallery-modal').addEventListener('click', function(e) {
+  if (e.target === this) this.style.display = 'none';
+});
+</script> -->
+
+<script>
+document.querySelectorAll('.gallery-item').forEach(item => {
+  const img = item.querySelector('img');
+  if (img) {
+    img.addEventListener('click', function() {
+      const modal = document.getElementById('gallery-modal');
+      const modalImg = document.getElementById('gallery-modal-img');
+      if (modal && modalImg && modalImg instanceof HTMLImageElement) {
+        modalImg.src = img.src;
+        modal.style.display = 'flex';
+      }
+    });
+  }
+});
+
+const closeButton = document.querySelector('.gallery-modal-close');
+if (closeButton) {
+  closeButton.addEventListener('click', function() {
+    const modal = document.getElementById('gallery-modal');
+    if (modal) {
+      modal.style.display = 'none';
+    }
+  });
+}
+
+const modal = document.getElementById('gallery-modal');
+if (modal) {
+  modal.addEventListener('click', function(e) {
+    if (e.target === this) this.style.display = 'none';
+  });
+}
+</script>
