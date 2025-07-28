@@ -9,8 +9,8 @@ This monorepo contains 3 separate Astro applications that should be deployed as 
 - **Repository**: https://github.com/beyondbeliefstudio/BeyondBeliefStudio__FullProject
 - **Branch**: main
 - **Base directory**: apps/landing
-- **Build command**: npm install && npm run build
-- **Publish directory**: apps/landing/dist
+- **Build command**: cd ../.. && npm install && cd apps/landing && npm run build
+- **Publish directory**: dist
 - **Config file**: netlify-landing.toml
 - **Domain**: beyondbeliefstudio.com
 
@@ -19,8 +19,8 @@ This monorepo contains 3 separate Astro applications that should be deployed as 
 - **Repository**: https://github.com/beyondbeliefstudio/BeyondBeliefStudio__FullProject
 - **Branch**: main
 - **Base directory**: apps/screenprinting
-- **Build command**: npm install && npm run build
-- **Publish directory**: apps/screenprinting/dist
+- **Build command**: cd ../.. && npm install && cd apps/screenprinting && npm run build
+- **Publish directory**: dist
 - **Config file**: netlify-screenprinting.toml
 - **Domain**: screenprint.beyondbeliefstudio.com
 
@@ -29,8 +29,8 @@ This monorepo contains 3 separate Astro applications that should be deployed as 
 - **Repository**: https://github.com/beyondbeliefstudio/BeyondBeliefStudio__FullProject
 - **Branch**: main
 - **Base directory**: apps/webdesign
-- **Build command**: npm install && npm run build
-- **Publish directory**: apps/webdesign/dist
+- **Build command**: cd ../.. && npm install && cd apps/webdesign && npm run build
+- **Publish directory**: dist
 - **Config file**: netlify-webdesign.toml
 - **Domain**: webdesign.beyondbeliefstudio.com
 
@@ -43,9 +43,9 @@ This monorepo contains 3 separate Astro applications that should be deployed as 
 2. **Connect to GitHub** and select the repository: `beyondbeliefstudio/BeyondBeliefStudio__FullProject`
 
 3. **Configure Build Settings**:
-   - Base directory: `apps/[app-name]` (e.g., `apps/landing`)
-   - Build command: `npm install && npm run build`
-   - Publish directory: `apps/[app-name]/dist` (e.g., `apps/landing/dist`)
+   - Base directory: `apps/[app-name]` (e.g., `apps/screenprinting`)
+   - Build command: `cd ../.. && npm install && cd apps/[app-name] && npm run build`
+   - Publish directory: `dist`
 
 4. **Advanced Settings**:
    - In "Advanced build settings" → "New variable"
@@ -126,6 +126,6 @@ This means Netlify is not finding your configuration file.
 
 If you're still having issues, you can manually set in Netlify UI:
 
-- **Base directory**: `apps/landing` (or appropriate app)
-- **Build command**: `npm install && npm run build`
-- **Publish directory**: `apps/landing/dist` (or appropriate app/dist)
+- **Base directory**: `apps/screenprinting` (or appropriate app)
+- **Build command**: `cd ../.. && npm install && cd apps/screenprinting && npm run build`
+- **Publish directory**: `dist`
