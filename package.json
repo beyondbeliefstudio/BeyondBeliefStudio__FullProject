@@ -5,6 +5,9 @@
     "apps/*",
     "packages/*"
   ],
+  "dependencies": {
+    "gsap": "^3.13.0"
+  },
   "devDependencies": {
     "@rollup/plugin-alias": "^5.1.1"
   }
