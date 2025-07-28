@@ -1,0 +1,11 @@
+{
+  "name": "beyondbelief",
+  "private": true,
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
+  "devDependencies": {
+    "@rollup/plugin-alias": "^5.1.1"
+  }
+}

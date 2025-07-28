@@ -1,0 +1,126 @@
+---
+import { getCollection } from "astro:content";
+import Links from "@shared/components/Links.astro";
+
+
+import Heading from "@shared/components/Heading.astro";
+import HeroCards from "@shared/components/HeroCards.astro";
+
+const heroCards = await getCollection("heroCards", ({data}) => data.isFeatured);
+
+---
+
+<section class="hero bg-dark">
+    <div class="container-md hero__container">
+        <div class="hero__column vc">
+            <div class="hero__content">
+                <Heading tag="h1" size="xxl" fontFamily="primary" marginBottom="l">Screen Printing That’s Local, Fast, and Built to Last.</Heading>
+                <p class="large">
+                    Operating out of our studio in Monroe, NC, we push out bold prints for schools, small businesses, events, and growing brands. Whether you’re around the corner or across the country, we’ve got you covered.
+                </p>
+                <div class="btn-group">
+                    <Links variant="primary" href={"/get-a-quote"}>Get A Quote</Links>
+                    <Links variant="outline" href={"/services"}>Our Services</Links>
+                </div>
+            </div>
+            <div class="hero__arrows">
+                <button id="prevArrow" aria-label="Previous Slide">←</button>
+                <button id="nextArrow" aria-label="Next Slide">→</button>
+            </div>
+        </div>
+        <div class="hero__column">
+            {
+                heroCards.map((card) => <HeroCards heroCards={card} />)
+            }
+        </div>
+    </div>
+    <div id="blob"></div>
+    <div id="blur"></div>
+</section>
+
+<style lang="scss">
+.hero {
+    overflow: hidden; 
+    position: relative;
+    padding-top: 130px;
+    height: fit-content;
+
+    &__container {
+        padding-top: 2rem;
+        padding-bottom: 3rem;
+        height: 100%;
+        min-height: calc(100vh - 130px);
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(min(400px, 100%), 1fr));
+        gap: 4rem;
+    }
+
+    h1, h2, h3, h4, p {
+        color: var(--light-200)
+    }
+
+    &__content {
+        text-align: left;
+        margin: 0rem auto 4.5rem;
+        padding: 2rem 0px 2rem;
+        text-wrap: balance;
+    }
+
+    &__column {
+        position: relative;
+        height: 100%;
+        z-index: 999;
+    }
+    
+    &__arrows {
+      position: absolute;
+      bottom: 2rem;
+      display: flex;
+      gap: 1rem;
+      z-index: 1000;
+      left: 0;
+    }
+    
+    &__arrows button {
+        background: none;
+        border: 2px solid white;
+        color: white;
+        font-size: 2rem;
+        padding: 0;
+        cursor: pointer;
+        height: 60px;
+        width: 60px;
+        border-radius: 100%;
+        padding-bottom: 6px;
+        transition: .25s ease-in-out all;
+    
+        &:hover {
+            transform: scale(.97);
+            opacity: .7;
+        }
+    }
+}
+
+@media (max-width: 1010px) {
+.hero {
+    height: auto;
+
+    &__container {
+        padding-top: 0;
+        gap: 1rem;
+    }
+
+    &__column {
+        min-height: 500px;
+    }
+
+    &__content {
+        padding-top: 1rem;
+    }
+}
+}
+
+
+
+
+</style>

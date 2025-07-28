@@ -1,0 +1,121 @@
+---
+// Content
+import {Picture} from "astro:assets";
+import type { CollectionEntry } from "astro:content";
+import Heading from "@shared/components/Heading.astro";
+import { Image } from "astro:assets";
+
+type Props = {
+    heroCards: CollectionEntry<"heroCards">
+};
+
+const {heroCards} = Astro.props;
+
+const {description, image, imageAlt, title} = heroCards.data;
+---
+
+<article class="heroCard">
+    <div class="heroCard__img-wrapper">
+        <div class="heroCard__img-overlay"></div>
+        <Picture src={image as any} alt={imageAlt} class="heroCard__img" loading="eager" width={1000} height={1000} format="avif" />
+    </div>
+    <div class="heroCard__img-content">
+        <Heading tag="h2" size="s" fontFamily="primary" marginBottom="xs">{title}</Heading>
+        <p class="heroCard__description">{description}</p>
+    </div>
+</article>
+
+<style lang="scss">
+.heroCard {
+    position: absolute;
+    height: 100%;
+    top: 0;
+    left: 0;
+    max-width: 70%;
+    width: 100%;
+    z-index: 4;
+    cursor: pointer;
+    will-change: transform;
+
+    &:nth-child(2) {
+        left: 10%;
+        z-index: 3;
+    }
+
+    &:nth-child(3) {
+        left: 20%;
+        z-index: 2;
+    }
+
+    &:nth-child(4) {
+        left: 30%;
+        z-index: 1;
+    }
+
+    &__img-wrapper {
+        width: 100%;
+        border-radius: var(--border-radius-small);
+        overflow: hidden;
+        height: 100%;
+    }
+
+    &__img-overlay {
+        height: 100%;
+        width: 100%;
+        background-color: var(--dark-900);
+        opacity: .6;
+        position: absolute;
+        top: 0;
+        left: 0;
+        border-radius: var(--border-radius-small)
+    }
+    
+    &__img-content {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        text-align: center;
+        background: var(--light-100);
+        padding: 1rem 1rem .5rem;
+        border-radius: 8px;
+        transform: scaleY(0);
+        
+        * {
+            color: var(--dark-900);
+        }
+    }
+
+    &__description {
+        line-height: 1.2;
+    }
+}
+
+.active {
+    .heroCard__img-overlay {
+        opacity: 0;
+    }
+
+    .heroCard__img-content {
+        transform: scaleY(1);
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .heroCard {
+        max-width: 80%;
+
+        &:nth-child(2) {
+            left: 6.66%;
+        }
+        
+        &:nth-child(3) {
+            left: 13.33%;
+        }
+        
+        &:nth-child(4) {
+            left: 20%;
+        }
+    }
+}
+</style>

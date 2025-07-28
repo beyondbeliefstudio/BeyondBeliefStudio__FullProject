@@ -1,0 +1,169 @@
+---
+import { type HTMLAttributes } from "astro/types";
+
+const tags = {
+  h1: 'h1',
+  h2: 'h2',
+  h3: 'h3',
+  h4: 'h4',
+  h5: 'h5',
+  h6: 'h6',
+}
+
+const sizes = {
+  display: "fs-display",
+  xxl: "fs-xxl;",
+  xl: "fs-xl",
+  l: "fs-l",
+  m: "fs-m",
+  s: "fs-s",
+  xs: "fs-xs",
+};
+
+const fontFamilies = {
+    primary: "ff-primary",
+    secondary: "ff-secondary",
+};
+
+const marginBottoms = {
+  xl: "mb-xl",
+  l: "mb-l",
+  m: "mb-m",
+  s: "mb-s",
+  xs: "mb-xs",
+  none: "mb-none",
+};
+
+interface Props extends HTMLAttributes<keyof typeof tags> {
+  tag: keyof typeof tags;
+  size: keyof typeof sizes;
+  fontFamily: keyof typeof fontFamilies;
+  marginBottom: keyof typeof marginBottoms;
+}
+
+const { tag, size, fontFamily, marginBottom, ...rest } = Astro.props;
+const CustomTag = tag;
+---
+
+<CustomTag class:list={["default", sizes[size], fontFamilies[fontFamily], marginBottoms[marginBottom]]} {...rest}>
+  <slot />
+</CustomTag>
+
+<style>
+  .default {
+    line-height: 1.1;
+    text-wrap: balance;
+    text-transform: capitalize;
+  }
+
+/* Sizes */
+  .fs-display {
+    font-size: var(--_typography---font-size--display);
+  }
+  .fs-xxl {
+  font-size: var(--_typography---font-size--h1);
+  }
+  .fs-xl {
+    font-size: var(--_typography---font-size--h2);
+  }
+  .fs-l {
+    font-size: var(--_typography---font-size--h3);
+  }
+  .fs-m {
+    font-size: var(--_typography---font-size--h4);
+  }
+  .fs-s {
+    font-size: var(--_typography---font-size--h5);
+  }
+  .fs-xs {
+    font-size: var(--_typography---font-size--h6);
+  }
+
+  /* Familes */
+  .ff-primary {
+    font-family: var(--primary-family);
+    font-weight: 400;
+  }
+  .ff-secondary {
+    font-family: var(--secondary-family);
+  }
+
+  /* Margin Bottom */
+  .mb-xl {
+    margin-bottom: 2rem;
+  }
+  .mb-l {
+    margin-bottom: 1.5rem;
+  }
+  .mb-m {
+    margin-bottom: 1rem;
+  }
+  .mb-s {
+    margin-bottom: .5rem;
+  }
+  .mb-xs {
+    margin-bottom: .25rem;
+  }
+  .mb-none {
+    margin-bottom: 0;
+  }
+
+
+
+  /* Typography */
+/* h1 {
+  font-size: var(--_typography---font-size--h1);
+  // font-size: 5rem;
+  line-height: 1.1;
+  font-family: var(--primary-family);
+  font-weight: 400;
+  margin-bottom: var(--_spacing---space--6);
+  color: var(--brand-secondary);
+  letter-spacing: -1px;
+  text-wrap-style: balance;
+}
+
+h1.display {
+  font-size: var(--_typography---font-size--display);
+}
+
+h2 {
+  font-family: var(--primary-family);
+  font-size: var(--_typography---font-size--h2);
+  letter-spacing: 0px;
+  line-height: 1.2;
+  font-weight: 400;
+  margin-bottom: var(--_spacing---space--6);
+  color: var(--brand-secondary);
+}
+
+h3 {
+  font-family: var(--secondary-family);
+  font-size: var(--_typography---font-size--h5);
+  margin-bottom: var(--_spacing---space--4);
+  font-weight: 500;
+  text-transform: capitalize;
+  letter-spacing: 1px;
+  line-height: 1.25;
+}
+
+h4 {
+  font-family: var(--secondary-family);
+  font-size: 1.25rem;
+  line-height: 1.5;
+  font-weight: 400;
+  letter-spacing: 1.1px;
+  margin-bottom: var(--_spacing---space--6);
+}
+
+h5,
+.h5 {
+  font-family: var(--secondary-family);
+  font-size: 0.8rem;
+  line-height: 1.5;
+  font-weight: 700;
+  letter-spacing: 1px;
+  margin-bottom: var(--_spacing---space--6);
+  font-style: italic;
+} */
+</style>

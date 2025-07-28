@@ -1,0 +1,89 @@
+---
+import { Picture } from "astro:assets";
+import Heading from "./Heading.astro";
+
+import type { HTMLAttributes } from "astro/types";
+
+export interface SplitProps extends HTMLAttributes<"section"> {
+    title: string;
+    imgSrc?: string;
+    imgAlt?: string;
+    background?: "bg-dark" | "bg-primary" | "bg-white";
+    orientation?: "left" | "right";
+}
+
+const { title, imgSrc, imgAlt, background, orientation, ...rest } = Astro.props;
+
+---
+
+<section aria-label={title} class:list={background} {...rest}>
+    <div class="container-md">
+        <div class="content-full split" class:list={orientation === "left" ? "split--reverse" : ""}>
+            <div class="split__col">
+                <div class="split__img-wrapper">
+                    <Picture src={imgSrc} alt="imgAlt" class="split__img" loading="eager" width={2000} height={1000} />
+                </div>
+            </div>
+            <div class="split__col split__content">
+                <Heading tag="h2" size="xl" fontFamily="primary" marginBottom="s">{title}</Heading>
+                <slot />
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<style lang="scss" is:global>
+// SPLIT OVERLAY
+.split {
+  display: grid;
+  gap: var(--site--margin);
+  grid-template-columns: repeat(auto-fit, minmax(min(450px, 100%), 1fr));
+
+    &__col {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        height: 100%;
+
+    }
+
+    &__img-wrapper {
+        height: 100%;
+        border-radius: var(--border-radius-medium);
+        overflow: hidden;
+        width: 100%;
+        aspect-ratio: 1/1;
+    }
+
+    &__content {
+        text-align: left;
+        padding: 3rem 0;
+
+        h4 {
+            margin-bottom: 0.25rem;
+            line-height: 1;
+            font-size: 1.1rem;
+            font-weight: 500;
+        }
+    }
+}
+
+.split--reverse .split__col:first-child {
+    order: 2;
+}
+
+.bg-dark .split__content * {
+    color: var(--light-200);
+}
+
+@media (max-width: 1010px) {
+  .split--reverse .split__col:first-child {
+    order: -1 !important;
+  }
+
+  .split__content {
+    padding: 0;
+  }
+}
+</style>
