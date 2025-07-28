@@ -1,6 +1,5 @@
 ---
 import { baseData } from "@/data/siteData";
-import appJS from "@/js/app.js?url";
 
 const {title = baseData.title, description = baseData.description } = Astro.props;
 ---
@@ -19,6 +18,4 @@ const {title = baseData.title, description = baseData.description } = Astro.prop
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,400;0,500;0,600;1,400;1,500;1,600&display=swap" rel="preload" as="style" onload="this.
     rel='stylesheet'">
-
-    <script type="module" src={appJS}></script>
 </head>

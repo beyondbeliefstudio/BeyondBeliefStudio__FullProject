@@ -1,0 +1,198 @@
+---
+// This component handles client-side JavaScript initialization
+// Shared across all sites in the monorepo
+---
+
+<script>
+  import gsap from "gsap";
+
+  // Run when DOM is ready
+  window.addEventListener("DOMContentLoaded", () => {
+    // Left-side text animation
+    const contentItems = document.querySelectorAll(".hero__content > *");
+    if (contentItems.length > 0) {
+      gsap.from(contentItems, {
+        y: 40,
+        opacity: 0,
+        duration: 1,
+        stagger: 0.15,
+        ease: "power2.out",
+      });
+    }
+
+    // Animate cards in
+    const cards = gsap.utils.toArray(".heroCard");
+    cards.forEach((card, i) => {
+      const isFirst = i === 0;
+
+      gsap.from(card, {
+        opacity: 0,
+        scale: isFirst ? 0.9 : 0.95,
+        x: isFirst ? 0 : i % 2 === 0 ? -100 : 100,
+        duration: 1,
+        delay: 0.3 + i * 0.1,
+        ease: "power3.out",
+      });
+    });
+
+    // Activate first card manually
+    const firstCard = document.querySelector(".heroCard");
+    if (firstCard) {
+      firstCard.classList.add("active");
+      gsap.set(firstCard, { zIndex: 10 });
+    }
+  });
+
+  /* -- Glow effect -- */
+
+  const blob = document.getElementById("blob");
+
+  window.onpointermove = (event) => {
+    const { clientX, clientY } = event;
+
+    blob.animate(
+      {
+        left: `${clientX}px`,
+        top: `${clientY}px`,
+      },
+      { duration: 3000, fill: "forwards" }
+    );
+  };
+
+  const text = document.querySelector(".hero__content");
+  const blur = document.getElementById("blur");
+
+  const cards = document.querySelectorAll(".heroCard");
+
+  // Carousel functionality
+  let currentCardIndex = 0;
+
+  const updateActiveCard = (index) => {
+    cards.forEach((card, i) => {
+      if (i === index) {
+        card.classList.add("active");
+        gsap.set(card, { zIndex: 10 });
+      } else {
+        card.classList.remove("active");
+        gsap.set(card, { zIndex: 1 });
+      }
+    });
+  };
+
+  const showNextCard = () => {
+    currentCardIndex = (currentCardIndex + 1) % cards.length;
+    updateActiveCard(currentCardIndex);
+  };
+
+  const showPrevCard = () => {
+    currentCardIndex = (currentCardIndex - 1 + cards.length) % cards.length;
+    updateActiveCard(currentCardIndex);
+  };
+
+  // Auto-play carousel
+  let carouselInterval = setInterval(showNextCard, 4000);
+
+  // Pause auto-play on hover
+  cards.forEach((card) => {
+    card.addEventListener("mouseenter", () => {
+      clearInterval(carouselInterval);
+    });
+
+    card.addEventListener("mouseleave", () => {
+      carouselInterval = setInterval(showNextCard, 4000);
+    });
+  });
+
+  // Arrow controls
+  const prevArrow = document.getElementById("prevArrow");
+  const nextArrow = document.getElementById("nextArrow");
+
+  if (prevArrow) {
+    prevArrow.addEventListener("click", () => {
+      clearInterval(carouselInterval);
+      showPrevCard();
+      carouselInterval = setInterval(showNextCard, 4000);
+    });
+  }
+
+  if (nextArrow) {
+    nextArrow.addEventListener("click", () => {
+      clearInterval(carouselInterval);
+      showNextCard();
+      carouselInterval = setInterval(showNextCard, 4000);
+    });
+  }
+
+  // Hero cards hover effects and background changes
+  cards.forEach((card, index) => {
+    const cardImage = card.querySelector(".heroCard__img");
+    const imageUrl = cardImage.src;
+
+    card.addEventListener("mouseenter", () => {
+      // Clear auto-play
+      clearInterval(carouselInterval);
+
+      // Update active card
+      currentCardIndex = index;
+      updateActiveCard(currentCardIndex);
+
+      // Change background
+      const heroSection = document.querySelector(".hero");
+      if (heroSection) {
+        heroSection.style.backgroundImage = `linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url(${imageUrl})`;
+        heroSection.style.backgroundSize = "cover";
+        heroSection.style.backgroundPosition = "center";
+        heroSection.style.transition = "all 0.5s ease";
+      }
+
+      // Animation effects
+      gsap.to(card, {
+        scale: 1.02,
+        duration: 0.3,
+        ease: "power2.out",
+      });
+
+      gsap.to(text, {
+        x: -20,
+        duration: 0.5,
+        ease: "power2.out",
+      });
+
+      gsap.to(blur, {
+        opacity: 0.8,
+        duration: 0.5,
+        ease: "power2.out",
+      });
+    });
+
+    card.addEventListener("mouseleave", () => {
+      // Restart auto-play
+      carouselInterval = setInterval(showNextCard, 4000);
+
+      // Reset background
+      const heroSection = document.querySelector(".hero");
+      if (heroSection) {
+        heroSection.style.backgroundImage = "";
+      }
+
+      // Reset animations
+      gsap.to(card, {
+        scale: 1,
+        duration: 0.3,
+        ease: "power2.out",
+      });
+
+      gsap.to(text, {
+        x: 0,
+        duration: 0.5,
+        ease: "power2.out",
+      });
+
+      gsap.to(blur, {
+        opacity: 0,
+        duration: 0.5,
+        ease: "power2.out",
+      });
+    });
+  });
+</script>
