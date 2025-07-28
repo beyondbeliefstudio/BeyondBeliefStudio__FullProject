@@ -102,24 +102,30 @@ cd apps/webdesign && npm run build && npm run preview
 ## Troubleshooting
 
 ### Error: "Missing script: build"
+
 This happens when Netlify doesn't find the correct config file or is running in the wrong directory.
 
-**Solution**: 
+**Solution**:
+
 1. Ensure the config file path is set correctly in Netlify UI
 2. For landing site, you can use the default `netlify.toml` file (already created)
 3. Make sure the base directory is set to the correct app folder
 
 ### Error: "No config file was defined"
+
 This means Netlify is not finding your configuration file.
 
 **Solution**:
+
 1. Go to Site Settings → Build & Deploy → Build settings
 2. Click "Edit settings"
 3. Set "Config file path" to the appropriate `.toml` file
 4. Save and redeploy
 
 ### Build Command Issues
+
 If you're still having issues, you can manually set in Netlify UI:
+
 - **Base directory**: `apps/landing` (or appropriate app)
 - **Build command**: `npm install && npm run build`
 - **Publish directory**: `apps/landing/dist` (or appropriate app/dist)
