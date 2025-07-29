@@ -3,16 +3,11 @@ import gsap from "gsap";
 
 // gsap.registerPlugin(ScrollTrigger);
 
-console.log("🚀 Shared app.js loaded successfully!");
-
 // Run when DOM is ready
 window.addEventListener("DOMContentLoaded", () => {
-  console.log("🎯 DOM Content Loaded - Animations starting");
-
   // Left-side text animation
   const contentItems = document.querySelectorAll(".hero__content > *");
   if (contentItems.length > 0) {
-    console.log("📍 Found hero content items:", contentItems.length);
     gsap.from(contentItems, {
       y: 40,
       opacity: 0,

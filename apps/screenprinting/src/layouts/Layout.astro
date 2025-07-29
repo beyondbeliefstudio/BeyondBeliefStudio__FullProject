@@ -4,7 +4,9 @@ import BaseHead  from "@/layouts/BaseHead.astro"
 import Footer from "@/layouts/Footer.astro"
 import Nav from "@/layouts/Nav.astro"
 import SiteSelector from '@shared/components/SiteSelector.astro';
-import ClientScripts from '@shared/components/ClientScripts.astro';
+
+// Scripts
+import appScript from "@shared/js/app.js?url";
 
 // Styles
 import "@shared/styles/global.scss"
@@ -20,6 +22,6 @@ import "@shared/styles/global.scss"
       <slot />
     </main>
     <Footer />
-    <ClientScripts />
+    <script type="module" src={appScript}></script>
   </body>
 </html>
