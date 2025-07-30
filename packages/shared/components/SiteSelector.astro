@@ -5,13 +5,13 @@
 
 <div id="site-selector-root" class="site-selector">
   <div id="site-selector-options" class="site-selector__options">
-    <a href="/screenprinting" id="site-selector-sp" class="site-selector__btn">
+    <a href="https://beyondbeliefscreenprint.netlify.app/" id="site-selector-sp" class="site-selector__btn">
       <div class="site-selector__btn-circle">
         <p>SP</p>
       </div>
       <span>Screen Printing</span>
     </a>
-    <a href="/webdesign" id="site-selector-wd" class="site-selector__btn">
+    <a href="https://beyondbeliefwebdesign.netlify.app/" id="site-selector-wd" class="site-selector__btn">
       <div class="site-selector__btn-circle">
         <p>WD</p>
       </div>
@@ -155,8 +155,16 @@ if (typeof window !== 'undefined') {
   const wd = document.getElementById('site-selector-wd');
   let open = false;
   let current = 'screenprinting';
-  if (window.location.pathname.includes('webdesign')) current = 'webdesign';
-  else if (window.location.pathname.includes('screenprinting')) current = 'screenprinting';
+  
+  // Detect current site based on hostname
+  if (window.location.hostname.includes('beyondbeliefwebdesign') || 
+      window.location.pathname.includes('webdesign')) {
+    current = 'webdesign';
+  } else if (window.location.hostname.includes('beyondbeliefscreenprint') || 
+             window.location.pathname.includes('screenprinting')) {
+    current = 'screenprinting';
+  }
+  
   // Set current icon
   icon.innerHTML = current === 'screenprinting'
     ? '<div class="site-selector__btn-circle"><p>SP</p></div>'
