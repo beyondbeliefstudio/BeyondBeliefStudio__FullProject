@@ -31,7 +31,7 @@ This monorepo contains 3 separate Astro applications that should be deployed as 
 - **Base directory**: (leave empty - use repo root)
 - **Build command**: npm install && cd apps/webdesign && npm run build
 - **Publish directory**: apps/webdesign/dist
-- **Config file**: netlify-webdesign.toml
+- **Config file**: Configure via UI only (no config file needed)
 - **Domain**: webdesign.beyondbeliefstudio.com
 
 ## Setup Instructions
@@ -43,7 +43,7 @@ This monorepo contains 3 separate Astro applications that should be deployed as 
 2. **Connect to GitHub** and select the repository: `beyondbeliefstudio/BeyondBeliefStudio__FullProject`
 
 3. **Configure Build Settings**:
-   - Base directory: Leave empty for repo root (or set to specific app folder like `apps/screenprinting` if using individual config)
+   - Base directory: Leave empty for repo root
    - Build command: `npm install && cd apps/[app-name] && npm run build`
    - Publish directory: `apps/[app-name]/dist`
 
@@ -52,13 +52,9 @@ This monorepo contains 3 separate Astro applications that should be deployed as 
    - Add: `NODE_VERSION` = `18`
 
 5. **Deploy Settings**:
-   - After initial deployment, go to Site Settings → Build & Deploy
-   - Under "Build settings" → click "Edit settings"
-   - **IMPORTANT**: Set "Config file path" to the appropriate config file:
-     - Landing: `netlify-landing.toml` (or use the default `netlify.toml`)
-     - Screen Printing: `netlify-screenprinting.toml`
-     - Web Design: `netlify-webdesign.toml`
-   - This tells Netlify which configuration file to use for build settings
+   - **IMPORTANT**: All configuration is done through the Netlify UI
+   - Do NOT set a config file path if you can't modify it
+   - The build settings entered in step 3 will be used
 
 6. **Domain Setup**:
    - Go to Site Settings → Domain Management
@@ -103,29 +99,31 @@ cd apps/webdesign && npm run build && npm run preview
 
 ### Error: "Missing script: build"
 
-This happens when Netlify doesn't find the correct config file or is running in the wrong directory.
+This happens when Netlify doesn't find the correct build command or is running in the wrong directory.
 
 **Solution**:
 
-1. Ensure the config file path is set correctly in Netlify UI
-2. For landing site, you can use the default `netlify.toml` file (already created)
-3. Make sure the base directory is set to the correct app folder
+1. Ensure the build settings are configured correctly in Netlify UI:
+   - Base directory: Leave empty (repo root)
+   - Build command: `npm install && cd apps/[app-name] && npm run build`
+   - Publish directory: `apps/[app-name]/dist`
+2. Make sure NODE_VERSION is set to 18 in environment variables
 
-### Error: "No config file was defined"
+### Error: "EACCES: permission denied"
 
-This means Netlify is not finding your configuration file.
+This happens when the build command tries to navigate to incorrect directories.
 
 **Solution**:
 
-1. Go to Site Settings → Build & Deploy → Build settings
-2. Click "Edit settings"
-3. Set "Config file path" to the appropriate `.toml` file
-4. Save and redeploy
+1. Use the corrected build command: `npm install && cd apps/webdesign && npm run build`
+2. Make sure Base directory is empty (not set to a subdirectory)
+3. Set Publish directory to: `apps/webdesign/dist`
 
 ### Build Command Issues
 
-If you're still having issues, you can manually set in Netlify UI:
+**For UI-only configuration** (when you can't set config file path):
 
-- **Base directory**: `apps/screenprinting` (or appropriate app)
-- **Build command**: `cd ../.. && npm install && cd apps/screenprinting && npm run build`
-- **Publish directory**: `dist`
+- **Base directory**: Leave empty
+- **Build command**: `npm install && cd apps/webdesign && npm run build`
+- **Publish directory**: `apps/webdesign/dist`
+- **Environment variables**: `NODE_VERSION` = `18`
