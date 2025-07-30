@@ -1,7 +1,6 @@
 [build]
-  base = "apps/screenprinting"
-  command = "cd ../.. && npm install && cd apps/screenprinting && npm run build"
-  publish = "dist"
+  command = "npm install && cd apps/screenprinting && npm run build"
+  publish = "apps/screenprinting/dist"
 
 [build.environment]
   NODE_VERSION = "18"

@@ -18,10 +18,10 @@ This monorepo contains 3 separate Astro applications that should be deployed as 
 
 - **Repository**: https://github.com/beyondbeliefstudio/BeyondBeliefStudio__FullProject
 - **Branch**: main
-- **Base directory**: apps/screenprinting
-- **Build command**: cd ../.. && npm install && cd apps/screenprinting && npm run build
-- **Publish directory**: dist
-- **Config file**: netlify-screenprinting.toml
+- **Base directory**: (leave empty - use repo root)
+- **Build command**: npm install && cd apps/screenprinting && npm run build
+- **Publish directory**: apps/screenprinting/dist
+- **Config file**: Configure via UI only (no config file needed)
 - **Domain**: screenprint.beyondbeliefstudio.com
 
 ### 3. Web Design Site
