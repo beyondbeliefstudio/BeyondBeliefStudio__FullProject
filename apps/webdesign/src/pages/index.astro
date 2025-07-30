@@ -1,28 +1,294 @@
 ---
-import Layout from '@shared/layouts/Layout.astro';
+import Layout from '@/layouts/Layout.astro';
 import Heading from '@shared/components/Heading.astro';
 import Buttons from '@shared/components/Buttons.astro';
+import SplitOverlay from '@shared/components/SplitOverlay.astro';
+import ComparisonTable from '@shared/components/ComparisonTable.astro';
+import ScrollingText from '@shared/components/ScrollingText.astro';
+import Hero from '@/components/Hero.astro';
+import CTA from '@/components/CTA.astro';
+
+// Images
+import headshot from '@/assets/headshot.jpg';
+import webLanding from '@/assets/webLanding.jpg';
+
+// Data for FAQ section
+import { getCollection } from 'astro:content';
+import FAQ from "@shared/components/FAQ.astro";
+import { Image } from 'astro:assets';
+import RecentProjects from '@/components/RecentProjects.astro';
+
+const faq = await getCollection('webdesignFAQ');
+
+const faqData = faq.map((item) => ({
+  tag: item.data.tag,
+  question: item.data.question,
+  answer: item.data.answer
+}));
 ---
 
 <Layout title="Web Design">
-	<main>
-		<section>
-			<div class="container">
-				<Heading tag="h1" size="xxl" fontFamily="primary" marginBottom="l">
-					Beyond Belief Web Design
-				</Heading>
-				<p>This is the web design page using shared components!</p>
-				<Buttons variant="secondary" href="/portfolio">View Portfolio</Buttons>
+<Hero />
+
+<!-- WHY IT WORKS -->
+ <section class="bg-white">
+	<div class="container-md two-col">
+		<div class="content-md">
+			<Heading tag="h2" size="xl" fontFamily="primary" marginBottom="l"> Your next customer is Googling you right now. Let’s make sure they’re impressed.</Heading>
+		</div>
+		<div class="content-md">
+			<p>A great website isn’t just about looking good — it’s about getting results. Whether that’s booking more jobs, generating more leads, or converting more visitors, your site should be doing the heavy lifting for your business.</p>
+			<p>We build custom websites that are fast, optimized, and designed to turn clicks into customers. And we stay on to keep things updated, maintained, and growing — so you never have to think about it again.</p>
+			<p><strong>One new customer a year could easily pay for the entire thing.</strong></p>
+		</div>
+	</div>
+ </section>
+
+ <section class="bg-primary" id="features">
+    <div class="container-md column-main">
+        <div class="content-md">
+            <Heading tag="h2" size="xl" fontFamily="primary" marginBottom="none">We don't just build websites.<br> We manage them.</Heading>
+        </div>
+        <div class="content-full grid-auto-3">
+            <div class="card">
+                <Heading tag="h3" size="m" fontFamily="primary" marginBottom="s">High-Converting by Design</Heading>
+                <p> Built to turn visitors into leads, calls, bookings, and sales.</p>
+            </div>
+            <div class="card">
+                <Heading tag="h3" size="m" fontFamily="primary" marginBottom="s">Unlimited Edits Included</Heading>
+                <p> Change your hours, photos, or services anytime. We’ll take care of it.</p>
+            </div>
+            <div class="card">
+                <Heading tag="h3" size="m" fontFamily="primary" marginBottom="s">Direct Communication</Heading>
+                <p>No support tickets. You’ll always deal directly with the person who built your site.</p>
+            </div>
+            <div class="card">
+                <Heading tag="h3" size="m" fontFamily="primary" marginBottom="s">Help With Copywriting</Heading>
+                <p>We’ll help craft your message — no blank pages or awkward filler.</p>
+            </div>
+            <div class="card">
+                <Heading tag="h3" size="m" fontFamily="primary" marginBottom="s">Based in Monroe, NC</Heading>
+                <p>Local to the Carolinas. Proud to serve small businesses like yours.</p>
+            </div>
+            <div class="card">
+                <Heading tag="h3" size="m" fontFamily="primary" marginBottom="s">Custom Code, No Builders</Heading>
+                <p>No bloated page builders. Just clean, hand-written code for speed and flexibility.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<!-- SPEED AND OPTIMIZATION -->
+ <section>
+	<div class="container-md column-main">
+		<div class="content-md">
+			<Heading tag="h2" size="xl" fontFamily="primary" marginBottom="l">Speed Matters — So We Build for It</Heading>
+			<p>When someone visits your site, you’ve got about 3 seconds to make a strong impression — and if it’s slow or clunky, they bounce. That’s why we hand-code every website from the ground up, without page builders or bloated themes. This approach gives us full control, faster load times, and consistently high scores on Google Lighthouse across performance, accessibility, SEO, and best practices.</p>
+		</div>
+		<div class="content-full speed-bento">
+			<div id="blobCTA"></div>
+			<div id="blur"></div>
+			<div class="speed-bento__grid">
+				<div class="speed-bento__card">
+					<div class="speed-bento__img-wrapper">
+						<Image src={webLanding} alt="Web Design Speed" />
+					</div>
+					<div class="speed-bento__content">
+						<Heading tag="h3" size="s" fontFamily="secondary" marginBottom="s">Why Lighthouse Scores Matter (and How We Stack Up)</Heading>
+						<p>Google Lighthouse audits your website across four key areas — Performance, Accessibility, Best Practices, and SEO. It’s how Google (and your users) measure how fast, usable, and search-friendly your site really is. Most builder-based sites struggle to score above 60–70, especially on mobile. Ours? <span>Regularly 95+ in Performance, and 100 across Accessibility, Best Practices, and SEO.</span> We hand-code every site and optimize each page before launch — no templates, no shortcuts, just clean, fast code that delivers results.</p>
+					</div>
+				</div>
+				<div class="speed-bento__card">
+					<div class="speed-bento__img-wrapper">
+						<Image src={webLanding} alt="Web Design Speed" />
+					</div>
+					<div class="speed-bento__content">
+						<Heading tag="h3" size="s" fontFamily="secondary" marginBottom="s">Your Site, Future-Proofed</Heading>
+						<p>Our code is clean and easy to maintain. That means fewer bugs, less downtime, and a site that holds up as the web evolves. We also include performance monitoring so we can keep things running fast and smooth over time — not just on day one.</p>
+					</div>
+				</div>
+				<div class="speed-bento__card">
+					<div class="speed-bento__img-wrapper">
+						<Image src={webLanding} alt="Web Design Speed" />
+					</div>
+					<div class="speed-bento__content">
+						<Heading tag="h3" size="s" fontFamily="secondary" marginBottom="s">Built Without the Bloat</Heading>
+						<p>We don’t use drag-and-drop builders that load 40 scripts you don’t need. We don’t rely on WordPress plugins to patch performance issues. Our builds are lightweight, lean, and lightning-fast — which means:</p>
+						<ul>
+							<li>Faster load times on Wi-Fi and mobile data</li>
+							<li>Higher Google rankings (yes, speed is a ranking factor)</li>
+							<li>Happier visitors who stay longer and convert better</li>
+						</ul>
+					</div>
+				</div>
 			</div>
-		</section>
-	</main>
+		</div>
+	</div>
+ </section>
+
+
+
+ <SplitOverlay title="Web Design Backed by 10+ Years in the Industry" imgSrc={headshot} imgAlt="A person working on a website" background="bg-dark" id="about">
+	<p>I’m Chris — founder of Beyond Belief Studio and currently a Senior Web Designer at BentoBox. I’ve designed and launched 100s of websites over the past decade, from restaurant groups to service providers to personal brands.</p>
+	<p>While most of my previous work isn’t available for public display, the skill and strategy behind it is what I now bring to local businesses through Beyond Belief. You get big-agency experience without the big-agency price or slow turnaround.</p>
+</SplitOverlay>
+
+<ScrollingText> 
+	<Heading tag="h2" size="xl" fontFamily="primary" marginBottom="none"  class="scrolling-marquee-heading">$0 down. $149 per month.</Heading>
+</ScrollingText>
+
+ <SplitOverlay title="Proudly Based in Monroe, NC" imgSrc={headshot} imgAlt="A person working on a website" background="bg-white" orientation="left">
+	<p>We love working with small businesses, especially here in our own backyard. When you hire Beyond Belief Studio, you're not just getting a website — you’re getting a partner who understands the pace, personality, and priorities of running a small business in the real world.</p>
+</SplitOverlay>
+
+
+<!-- COMPARISON TABLE -->
+<section id="pricing">
+	<div class="container-md column-main">
+		<div class="content-md">
+			<Heading tag="h2" size="xl" fontFamily="primary" marginBottom="s"'>How We Compare to Traditional Agencies</Heading>
+			<p>Most agencies charge thousands upfront and leave you managing updates yourself. We flip that model — zero upfront cost, everything included monthly, and unlimited support.</p>
+		</div>
+		<div class="content-full">
+			<ComparisonTable />
+		</div>
+	</div>
+</section>
+
+<!-- RECENT PROJECTS -->
+<section class="bg-white" id="our-work">
+    <div class="container-md column-main">
+        <div class="content-md">
+            <Heading tag='h2' size='xl' fontFamily='primary' marginBottom='m'>Recent Projects</Heading>
+            <p>Ordering should feel simple, almost fun. Here’s the four‑step playbook that gets your gear from idea to doorstep in record time.</p>
+        </div>
+        <div class="content-full">
+			<RecentProjects />
+        </div>
+    </div>
+</section>
+
+<FAQ faq={faqData} id="faq" />
+<CTA />
 </Layout>
 
-<style>
-.container {
-	max-width: 1200px;
-	margin: 0 auto;
-	padding: 2rem;
-	text-align: center;
+<style lang="scss">
+.two-col {
+	display: flex;
+    text-align: left;
+    gap: 3rem;
+
+	.content-md {
+		text-align: left
+	}
 }
+
+#features {
+    .card {
+		background: #ffffffab;
+		border: 1px solid #fff;
+		backdrop-filter: blur(18px);
+        border-radius: var(--border-radius-medium);
+        padding: 1.5rem 1.5rem .5rem;
+        text-wrap: balance;
+        text-align: left;
+    }
+}
+
+.speed-bento {
+	overflow: hidden;
+	position: relative;
+
+	&__grid {
+		display: grid;
+		grid-template-columns: 1fr 1fr 1fr 1fr;
+		gap: 2rem;
+		background: #ffffff36;
+		border: 1px solid #fff;
+		padding: 2rem;
+		border-radius: var(--border-radius-medium);
+		position: relative;
+		z-index: 5;
+	}
+
+	&__card {
+		grid-column: span 2;
+		background: #ffffff96;
+		border: 1px solid #fff;
+		padding: 1rem;
+		border-radius: 7px;
+		text-align: left;
+		display: flex;
+		flex-direction: column;
+		gap: 1rem;
+	}
+
+	&__card:nth-child(1) {
+		grid-column: span 4;
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		gap: 2rem;
+		align-items: center;
+		justify-content: center;
+
+		.speed-bento__img-wrapper {
+			width: 100%;
+			height: auto;
+		}
+	}
+
+	&__img-wrapper {
+		height: 300px;
+	}
+
+	&__content {
+		font-size: .9rem;
+
+		p {
+			font-size: .9rem;
+		}
+
+		ul {
+			margin: 1rem 0;
+			padding-left: 0;
+		}
+
+		li {
+			list-style: none;
+			padding: 0rem 0;
+			font-size: .9rem;
+			position: relative;
+			padding-left: 1.5rem;
+
+			&::before {
+				content: "→";
+				position: absolute;
+				left: 0;
+				font-weight: bold;
+			}
+
+			strong {
+				font-weight: 700;
+			}
+		}
+
+		span {
+			font-weight: 700;
+		}
+	}
+}
+
+.light-text {
+	h1, h2, h3, h4, h5, h6, p {
+		color: var(--light-100);
+	}
+}
+
+.scrolling-marquee-heading {
+	word-spacing: -7px;
+	text-transform: initial !important
+}
+
+
 </style>

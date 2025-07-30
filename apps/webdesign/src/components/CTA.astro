@@ -1,0 +1,39 @@
+---
+import Heading from "@shared/components/Heading.astro";
+import Links from "@shared/components/Links.astro";
+
+
+---
+
+<section class="CTA">
+    <div class="container-md bg-white CTA__container">
+        <div id="blobCTA"></div>
+        <div id="blur"></div>
+        <div class="content-lg CTA-content">
+            <Heading tag='h2' size='xl' fontFamily='primary' marginBottom='m'>Let’s Build Something That Pays for Itself</Heading>
+            <p class="large">You don’t need another website. You need a growth tool. Let’s make one.</p>
+            <div class="btn-group">
+                <Links href={"/get-a-quote"}>Get Started Today</Links>
+            </div>
+        </div>
+    </div>
+</section>
+
+<style lang="scss">
+
+.CTA {
+    &__container {
+        border-radius: var(--border-radius-medium);
+        overflow: hidden;
+        padding: var(--_spacing---section-space--main);
+        outline: 1px solid #fff;
+    }
+
+    &-content {
+        position: relative;
+        z-index: 999;
+        text-wrap: balance;
+    }
+}
+
+</style>

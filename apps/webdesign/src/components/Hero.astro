@@ -1,0 +1,119 @@
+---
+import Links from "@shared/components/Links.astro";
+import Heading from "@shared/components/Heading.astro";
+
+// Helpers
+import { Picture } from "astro:assets";
+
+// Images
+import webLanding from "@/assets/webLanding.jpg";
+import webLanding2 from "@/assets/webLanding2.jpg";
+
+---
+
+<section class="hero">
+    <div class="container-md hero__container">
+        <div class="hero__column content-md">
+            <div class="hero__content">
+                <span>Starting at only $149/mo</span>
+                <Heading tag="h1" size="xxl" fontFamily="primary" marginBottom="l"> Websites That Actually Grow Your Business</Heading>
+                <p class="large">
+                    We don’t just design and disappear. We design, build, launch, and manage your site — so you can focus on running your business while your website quietly brings in new customers.
+                </p>
+                <div class="btn-group">
+                    <Links variant="primary" href={"/get-a-quote"}>Let's Build Yours</Links>
+                </div>
+            </div>
+        </div>
+        <div class="hero__column">
+            <div class="img-wrapper">
+                <Picture src={webLanding2} alt="Web Design Hero Image" loading="eager" />
+            </div>
+        </div>
+    </div>
+    <div id="blob"></div>
+    <div id="blur"></div>
+</section>
+
+<style lang="scss">
+.hero {
+    overflow: hidden; 
+    position: relative;
+    padding-top: 130px;
+    height: fit-content;
+
+    &__container {
+        padding-top: 2rem;
+        padding-bottom: 0rem;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+    }
+
+    &__content {
+        padding: 2rem 0px;
+        text-wrap: balance;
+        text-align: center;
+
+        span {
+            outline: 1px solid #fff;
+            padding: .5rem;
+            border-radius: 5px;
+            line-height: 1;
+            display: block;
+            width: fit-content;
+            margin: auto;
+            background: rgb(255 255 255 / 61%);
+            overflow: hidden;
+            backdrop-filter: blur(16px);
+            margin-bottom: 2rem;
+            text-transform: uppercase;
+            font-weight: 700;
+            letter-spacing: 1px;
+        }
+    }
+
+    &__column {
+        position: relative;
+        height: 100%;
+        z-index: 999;
+    }
+
+    .img-wrapper {
+        aspect-ratio: 16 / 9;
+        object-fit: contain;
+        border-radius: 16px 16px 0 0;
+        padding: 2rem 2rem 0;
+        background: #ffffff36;
+        overflow: hidden;
+        backdrop-filter: blur(16px);
+        outline: 1px solid #fff;
+
+        img {
+            object-fit: cover;
+            object-position: top;
+        }
+    }
+}
+
+@media (max-width: 1010px) {
+.hero {
+    height: auto;
+
+    &__container {
+        padding-top: 0;
+        gap: 1rem;
+    }
+
+    &__column {
+        min-height: 500px;
+    }
+
+    &__content {
+        padding-top: 1rem;
+    }
+}
+}
+
+</style>

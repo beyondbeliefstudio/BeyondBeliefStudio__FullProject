@@ -1,0 +1,263 @@
+---
+import Heading from "./Heading.astro";
+import Links from "./Links.astro";
+
+const beyondBeliefFeatures = [
+  { title: "Zero upfront cost", description: "Start building your site today without any money down" },
+  { title: "All-inclusive monthly plan", description: "No hidden fees, no surprise charges, everything included" },
+  { title: "5 custom pages included", description: "Home, About, Services, Contact, plus one specialty page" },
+  { title: "Extra pages just $99 each", description: "One-time fee, no ongoing charges per page" },
+  { title: "100% custom, hand-coded design", description: "No templates, no themes, built specifically for your business" },
+  { title: "Live in 2 weeks", description: "Fast turnaround once you provide content and feedback" },
+  { title: "Unlimited edits forever", description: "Change text, photos, hours, anything you need" },
+  { title: "Lightning-fast updates", description: "Most changes live within 24-48 hours" },
+  { title: "Premium performance scores", description: "95-100 Google Lighthouse scores guaranteed" },
+  { title: "You own everything after 12 months", description: "Full site ownership, no ongoing dependencies" },
+  { title: "Professional copywriting included", description: "AI-assisted writing, human-polished for your voice" },
+  { title: "Hosting & maintenance included", description: "Fast, secure hosting with automatic updates" }
+];
+
+const competitorFeatures = [
+  { title: "Large upfront investment required", description: "$3,000-$10,000+ before you see anything" },
+  { title: "Hidden costs pile up", description: "Maintenance, hosting, and updates often cost extra" },
+  { title: "Page limits and extra fees", description: "Most agencies cap pages or charge $200-500 each" },
+  { title: "Expensive page additions", description: "Every new page means another big invoice" },
+  { title: "Template-based or theme limitations", description: "Cookie-cutter designs that look like everyone else" },
+  { title: "Slow delivery timelines", description: "4-8+ weeks typical, often delayed further" },
+  { title: "Support costs extra", description: "Edits and updates usually billed hourly or per request" },
+  { title: "Slow update turnaround", description: "Changes can take a week or more to implement" },
+  { title: "Performance often suffers", description: "Bloated code and poor optimization common" },
+  { title: "Ownership unclear", description: "May not include source code or full site rights" },
+  { title: "DIY copywriting", description: "You're on your own, or pay extra for professional writing" },
+  { title: "Separate hosting fees", description: "Additional monthly costs, often marked up significantly" }
+];
+---
+
+<div class="comparison-wrapper">
+    <div id="blobCTA"></div>
+    <div id="blur"></div>
+    <div class="comparison-card">
+    <!-- Competitor Card (Left) -->
+    <div class="comparison-card__item competitor-card">
+        <span class="badge">The Old Way</span>
+        <div class="comparison-card__item-wrapper">
+            <div class="comparison-card__header">
+                <Heading tag="h3" size="m" fontFamily="secondary" marginBottom="s">Traditional Agency</Heading>
+                <p class="comparison-card__subtitle">Built for big budgets, slow timelines, and long-term lock-in.</p>
+            </div>
+            
+            <div class="comparison-card__pricing">
+            <div class="comparison-card__pricing-main">$3k-$10k+</div>
+            <div class="comparison-card__pricing-sub">Upfront cost</div>
+            </div>
+            
+            <div class="comparison-card__features">
+            {competitorFeatures.map((feature) => (
+                <div class="comparison-card__feature-item">
+                <span class="comparison-card__feature-icon">—</span>
+                <div class="comparison-card__feature-text">
+                    <div class="feature-title">{feature.title}</div>
+                    <div class="feature-description">{feature.description}</div>
+                </div>
+                </div>
+            ))}
+            </div>
+        </div>
+    </div>
+
+    <!-- Beyond Belief Card (Right) -->
+    <div class="comparison-card__item bb-card featured">
+        <span class="badge popular">One Plan. Everything Included.</span>
+        <div class="comparison-card__item-wrapper">
+            <div class="comparison-card__header">
+                <Heading tag="h3" size="m" fontFamily="secondary" marginBottom="s">The Beyond Belief Approach</Heading>
+                <p class="comparison-card__subtitle">Built for small businesses who want a fast, stress-free launch with zero upfront cost.</p>
+            </div>
+
+            <div class="comparison-card__pricing">
+            <div class="comparison-card__pricing-main">$149/mo</div>
+            <div class="comparison-card__pricing-sub">All-inclusive</div>
+            </div>
+            
+            <div class="comparison-card__features">
+            {beyondBeliefFeatures.map((feature) => (
+                <div class="comparison-card__feature-item">
+                <span class="comparison-card__feature-icon">✓</span>
+                <div class="comparison-card__feature-text">
+                    <div class="feature-title">{feature.title}</div>
+                    <div class="feature-description">{feature.description}</div>
+                </div>
+                </div>
+            ))}
+            </div>
+
+            <div class="comparison-card__cta">
+                <Links variant="primary" href="/get-a-quote">Get Started</Links>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style lang="scss">
+.comparison-wrapper {
+    position: relative;
+    overflow: hidden;
+}
+
+.comparison-card {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    margin: 0 auto;
+    text-align: left;
+    background: #ffffff36;
+    border: 1px solid #fff;
+    padding: 2rem;
+    border-radius: var(--border-radius-medium);
+    position: relative;
+    z-index: 5;
+    align-items: end;;
+  
+    @media (max-width: 768px) {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+
+    &__item-wrapper {
+        padding: 2rem;
+    }
+  
+    &__item {
+        background: #ffffff96;
+        border-radius: var(--border-radius-medium);
+        border: 1px solid var(--light-100);
+        position: relative;
+        transition: all 0.3s ease;
+        overflow: hidden;
+        height: fit-content;
+    }
+
+    &__header {
+        margin-bottom: 1.5rem;
+        position: relative;
+    }
+
+    &__subtitle {
+        margin: 0;
+        font-size: 0.9rem;
+        text-wrap: balance;
+    }
+
+    &__pricing {
+        margin-bottom: 2rem;
+        padding-bottom: 1.5rem;
+        border-bottom: 1px solid var(--dark-900);
+    }
+
+    &__pricing-main {
+        font-size: 3.5rem;
+        line-height: 1;
+        margin-bottom: 0.5rem;
+        font-weight: 400;
+    }
+
+    &__feature-item {
+        display: flex;
+        align-items: flex-start;
+        gap: 0.75rem;
+        margin-bottom: 1rem;
+        
+        &:last-child {
+            margin-bottom: 0;
+        }
+    }
+
+    &__feature-icon {
+        width: 25px;
+        height: 25px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 0.8rem;
+        font-weight: bold;
+        flex-shrink: 0;
+        background-color: var(--brand-primary);
+        margin-top: 0.2rem;
+    }
+
+
+    &__feature-text {
+        flex: 1;
+        line-height: 1.5;
+        font-size: 0.9rem;
+        
+        .feature-title {
+            font-weight: 600;
+            color: inherit;
+        }
+        
+        .feature-description {
+            font-size: 0.85rem;
+            opacity: 0.8;
+            line-height: 1.4;
+        }
+    }
+
+    &__cta {
+        text-align: center;
+        margin-top: 2rem;
+
+        .btn {
+            width: 100%;
+        }
+    }
+}
+
+
+.competitor-card {
+  opacity: 0.85;
+
+  .comparison-card__feature-icon {
+    background: var(--dark-800);
+    color: white;
+    padding-bottom: 2px;
+  }
+}
+
+.bb-card {
+  border: 1px solid var(--brand-primary);
+  
+  &.featured {
+    z-index: 2;
+    
+    @media (max-width: 768px) {
+      transform: none;
+    }
+  }
+}
+
+.badge {
+    background: var(--dark-800);
+    color: var(--light-100);
+    padding: 0.5rem 1rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    display: inline-block;
+    width: 100%;
+    border-radius: 0;
+    text-align: center;
+    font-size: 1rem;
+
+    &.popular {
+        background: var(--brand-primary);
+        color: var(--dark-900);
+    }
+}
+
+.bb-feature .feature-icon {
+  background: var(--brand-primary);
+  color: var(--dark-900);
+}
+</style>

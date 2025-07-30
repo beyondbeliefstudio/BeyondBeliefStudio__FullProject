@@ -1,0 +1,50 @@
+[
+  {
+    "id": 1,
+    "question": "What’s included in the $149/month plan?",
+    "answer": "Everything you need to launch and run a high-performing website — custom design and development, hosting, unlimited edits, content help, performance monitoring, and support. You’ll never get surprise fees or have to worry about touching the backend.",
+    "tag": "a1"
+  },
+  {
+    "id": 2,
+    "question": "Do I have to pay anything upfront?",
+    "answer": "Nope. $0 to start. Just $149/month with a 12-month commitment. After that, you can renew or go month-to-month.",
+    "tag": "a2"
+  },
+  {
+    "id": 3,
+    "question": "What happens after the 12 months?",
+    "answer": "You keep your site live and fully supported as long as your plan is active. After 12 months, you can continue month-to-month or renew for another year — no pressure either way. And if you ever want to move the site elsewhere, we’ll happily send you the full code and content. At that point, the site is 100% yours.",
+    "tag": "a3"
+  },
+  {
+    "id": 4,
+    "question": "How many pages do I get?",
+    "answer": "Your plan includes up to 5 custom pages. Need more? No problem — we charge a simple $99 one-time fee per extra page.",
+    "tag": "a4"
+  },
+  {
+    "id": 5,
+    "question": "Do I need to write all the content myself?",
+    "answer": "Not at all. We’ll help you shape the message using AI-assisted copywriting and human editing. If you already have content, we’ll polish and structure it for clarity and impact.",
+    "tag": "a5"
+  },
+  {
+    "id": 6,
+    "question": "Is this built with WordPress, Wix, or Squarespace?",
+    "answer": "No. All sites are hand-coded from the ground up, built for speed, SEO, and flexibility. That means no bloated templates, no builder limitations, and way better performance across the board.",
+    "tag": "a6"
+  },
+  {
+    "id": 7,
+    "question": "Can I make edits myself later?",
+    "answer": "You won’t need to. Unlimited content updates are included in your plan — just send an email and we’ll take care of it, fast. Focus on your business. We’ve got the site covered.",
+    "tag": "a7"
+  },
+  {
+    "id": 8,
+    "question": "I’m not local — can we still work together?",
+    "answer": "Absolutely. While we love working with businesses around Monroe, NC, we’re happy to build for clients anywhere in the U.S.",
+    "tag": "a8"
+  }
+]

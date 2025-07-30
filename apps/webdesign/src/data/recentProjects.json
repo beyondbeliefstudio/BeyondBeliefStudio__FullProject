@@ -1,0 +1,38 @@
+[
+  {
+    "id": 1,
+    "data": "step1",
+    "projectTitle": "Andiamo Away Travel Agency",
+    "projectDescription": "We’ll work with you to create a custom design that fits your vision and brand. We can even help with the copy.",
+    "image": "@/assets/andiamoAway.png",
+    "imageAlt": "Reach Out",
+    "active": "active"
+  },
+  {
+    "id": 2,
+    "data": "step2",
+    "projectTitle": "Step 2: Approve Your Proof",
+    "projectDescription": "We’ll send a digital proof so you can see your design on the actual shirt style and color.",
+    "image": "@/assets/webLanding2.jpg",
+    "imageAlt": "Mockup",
+    "active": ""
+  },
+  {
+    "id": 3,
+    "data": "step3",
+    "projectTitle": "Step 3: We Hit the Presses",
+    "projectDescription": "Every shirt is printed in-house using top-quality inks and processes we trust. No outsourcing.",
+    "image": "@/assets/webLanding2.jpg",
+    "imageAlt": "Printing",
+    "active": ""
+  },
+  {
+    "id": 4,
+    "data": "step4",
+    "projectTitle": "Step 4: Delivery Day",
+    "projectDescription": "Come by our Monroe studio to pick up your order, or let us ship it straight to your door.",
+    "image": "@/assets/webLanding2.jpg",
+    "imageAlt": "Shipping",
+    "active": ""
+  }
+]
