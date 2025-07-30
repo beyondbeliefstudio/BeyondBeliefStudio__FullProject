@@ -184,6 +184,18 @@ if (typeof window !== 'undefined') {
     if (open) root.classList.add('open');
     else root.classList.remove('open');
   });
+  
+  // Handle navigation clicks
+  sp.addEventListener('click', (e) => {
+    e.stopPropagation();
+    window.location.href = 'https://beyondbeliefscreenprint.netlify.app/';
+  });
+  
+  wd.addEventListener('click', (e) => {
+    e.stopPropagation();
+    window.location.href = 'https://beyondbeliefwebdesign.netlify.app/';
+  });
+  
   // Close on outside click
   window.addEventListener('click', (e) => {
     if (!root.contains(e.target)) {
