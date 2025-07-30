@@ -5,13 +5,13 @@
 
 <div id="site-selector-root" class="site-selector">
   <div id="site-selector-options" class="site-selector__options">
-    <a href="https://beyondbeliefscreenprint.netlify.app/" id="site-selector-sp" class="site-selector__btn">
+    <a href="#" id="site-selector-sp" class="site-selector__btn">
       <div class="site-selector__btn-circle">
         <p>SP</p>
       </div>
       <span>Screen Printing</span>
     </a>
-    <a href="https://beyondbeliefwebdesign.netlify.app/" id="site-selector-wd" class="site-selector__btn">
+    <a href="#" id="site-selector-wd" class="site-selector__btn">
       <div class="site-selector__btn-circle">
         <p>WD</p>
       </div>
@@ -187,11 +187,13 @@ if (typeof window !== 'undefined') {
   
   // Handle navigation clicks
   sp.addEventListener('click', (e) => {
+    e.preventDefault();
     e.stopPropagation();
     window.location.href = 'https://beyondbeliefscreenprint.netlify.app/';
   });
   
   wd.addEventListener('click', (e) => {
+    e.preventDefault();
     e.stopPropagation();
     window.location.href = 'https://beyondbeliefwebdesign.netlify.app/';
   });
