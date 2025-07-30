@@ -1,7 +1,6 @@
 [build]
-  base = "apps/webdesign"
-  command = "cd ../.. && npm install && cd apps/webdesign && npm run build"
-  publish = "dist"
+  command = "npm install && cd apps/webdesign && npm run build"
+  publish = "apps/webdesign/dist"
 
 [build.environment]
   NODE_VERSION = "18"

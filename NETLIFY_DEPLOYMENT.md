@@ -28,9 +28,9 @@ This monorepo contains 3 separate Astro applications that should be deployed as 
 
 - **Repository**: https://github.com/beyondbeliefstudio/BeyondBeliefStudio__FullProject
 - **Branch**: main
-- **Base directory**: apps/webdesign
-- **Build command**: cd ../.. && npm install && cd apps/webdesign && npm run build
-- **Publish directory**: dist
+- **Base directory**: (leave empty - use repo root)
+- **Build command**: npm install && cd apps/webdesign && npm run build
+- **Publish directory**: apps/webdesign/dist
 - **Config file**: netlify-webdesign.toml
 - **Domain**: webdesign.beyondbeliefstudio.com
 
@@ -43,9 +43,9 @@ This monorepo contains 3 separate Astro applications that should be deployed as 
 2. **Connect to GitHub** and select the repository: `beyondbeliefstudio/BeyondBeliefStudio__FullProject`
 
 3. **Configure Build Settings**:
-   - Base directory: `apps/[app-name]` (e.g., `apps/screenprinting`)
-   - Build command: `cd ../.. && npm install && cd apps/[app-name] && npm run build`
-   - Publish directory: `dist`
+   - Base directory: Leave empty for repo root (or set to specific app folder like `apps/screenprinting` if using individual config)
+   - Build command: `npm install && cd apps/[app-name] && npm run build`
+   - Publish directory: `apps/[app-name]/dist`
 
 4. **Advanced Settings**:
    - In "Advanced build settings" → "New variable"
