@@ -7,19 +7,22 @@ import Heading from "@shared/components/Heading.astro";
 <section class="hero">
     <div class="container-md hero__container hero__container">
         <div class="content-md hero__column hero__content">
-            <Heading tag="h1" size="display" fontFamily="primary" marginBottom="l">Two Crafts. One Purpose.</Heading>
+            <Heading tag="h1" size="display" fontFamily="primary" marginBottom="l">Two Crafts.<br> One Purpose.</Heading>
             <Heading tag="h2" size="s" fontFamily="secondary" marginBottom="none">
-                We design custom websites and print custom apparel — all built by hand, all under one roof. <span>Choose your path below.</span>
+                We print <span class="highlight">custom apparel</span> and design <span class="highlight">custom websites</span> — all by hand, all under one roof. 
+            </Heading>
+            <Heading tag="h3" size="s" fontFamily="secondary" marginBottom="none">
+                Choose your path below.
             </Heading>
         </div>
         <div class="content-lg hero__column">
             <div class="hero__links" id="hero__links">
                 <span class="hero__indicator" id="hero__indicator"></span>
                 <a href="https://beyondbeliefscreenprint.netlify.app/" class="hero__link">
-                    <Heading tag="h3" size="m" fontFamily="primary" marginBottom="none">Screen Printing</Heading>
+                    <Heading tag="h4" size="m" fontFamily="primary" marginBottom="none">Screen Printing</Heading>
                 </a>
                 <a href="https://beyondbeliefwebdesign.netlify.app/" class="hero__link">
-                    <Heading tag="h3" size="m" fontFamily="primary" marginBottom="none">Web Design</Heading>
+                    <Heading tag="h4" size="m" fontFamily="primary" marginBottom="none">Web Design</Heading>
                 </a>
             </div>
         </div>
@@ -47,6 +50,8 @@ import Heading from "@shared/components/Heading.astro";
         align-items: center;
         justify-content: center;
         gap: 2rem;
+        padding-top: 185px;
+        padding-bottom: 185px;
     }
 
     &__links {
@@ -57,6 +62,7 @@ import Heading from "@shared/components/Heading.astro";
         background: #ffffff5e;
         border-radius: 1000px;
         backdrop-filter: blur(6px);
+        overflow: hidden;
     }
 
     &__link {
@@ -74,6 +80,10 @@ import Heading from "@shared/components/Heading.astro";
         position: relative;
         z-index: 1;
         cursor: pointer;
+
+        @media screen and (max-width: 768px) {
+            padding: 1rem 1rem;
+        }
     }
 
     &__indicator {
@@ -83,17 +93,18 @@ import Heading from "@shared/components/Heading.astro";
         height: 100%;
         border-radius: 1000px;
         background: var(--brand-primary);
-        opacity: 0;
-        z-index: 0;
-        transition: left 0.25s cubic-bezier(0.4,0,0.2,1), width 0.25s cubic-bezier(0.4,0,0.2,1), opacity 0.2s;
-        pointer-events: none;
-    }
-    &__links:hover .hero__indicator {
         opacity: 1;
+        z-index: 0;
+        transition: left 0.25s cubic-bezier(0.4,0,0.2,1), width 0.25s cubic-bezier(0.4,0,0.2,1), transform 0.1s ease-out;
+        pointer-events: none;
+        transform-origin: center;
+        
+        &.pressed {
+            transform: scaleX(0.95) scaleY(.85);
+        }
     }
 
     &__content {
-        padding: 2rem 0px 2rem;
         text-wrap: balance;
     }
 
@@ -105,15 +116,32 @@ import Heading from "@shared/components/Heading.astro";
     }
 }
 
+.highlight {
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+
+    &:before {
+        position: absolute;
+        content: '';
+        width: 100%;
+        height: 8px;
+        left: 0;
+        bottom: 7px;
+        background: var(--brand-primary);
+        border-radius: 100px;
+        z-index: -1;
+    }
+}
+
 h2 {
     font-weight: 400;
     text-transform: inherit !important;
-    
-    span {
-        display: block;
-        margin-top: 1rem;
-        font-weight: 700;
-    }
+    line-height: 1.5 !important;
+}
+
+h3 {
+    margin-top: 2rem;
 }
 
 </style>
@@ -124,7 +152,10 @@ document.addEventListener('DOMContentLoaded', function() {
   const links = document.querySelectorAll('.hero__link');
   const indicator = document.getElementById('hero__indicator');
   const linksContainer = document.getElementById('hero__links');
+  const highlightSpans = document.querySelectorAll('.highlight');
+  
   let lastLink = null;
+  
   function moveIndicatorTo(link) {
     const rect = link.getBoundingClientRect();
     const parentRect = linksContainer.getBoundingClientRect();
@@ -132,22 +163,45 @@ document.addEventListener('DOMContentLoaded', function() {
     indicator.style.left = (rect.left - parentRect.left) + 'px';
     lastLink = link;
   }
-  let isLinksHovered = false;
+  
+  // Initialize indicator with first link
+  if (links[0]) {
+    moveIndicatorTo(links[0]);
+  }
+  
+  // Global mouse tracking for screen position
+  document.addEventListener('mousemove', (e) => {
+    const screenWidth = window.innerWidth;
+    const mouseX = e.clientX;
+    const isLeftHalf = mouseX < screenWidth / 2;
+    
+    // Move indicator based on screen position
+    if (isLeftHalf && links[0]) {
+      moveIndicatorTo(links[0]);
+    } else if (!isLeftHalf && links[1]) {
+      moveIndicatorTo(links[1]);
+    }
+  });
+  
+  // Add click animation to hero links
   links.forEach(link => {
-    link.addEventListener('mouseenter', () => {
-      if (isLinksHovered) moveIndicatorTo(link);
+    link.addEventListener('mousedown', () => {
+      indicator.classList.add('pressed');
+    });
+    
+    link.addEventListener('mouseup', () => {
+      indicator.classList.remove('pressed');
+    });
+    
+    link.addEventListener('mouseleave', () => {
+      indicator.classList.remove('pressed');
     });
   });
-  linksContainer.addEventListener('mouseenter', () => {
-    isLinksHovered = true;
-  });
-  linksContainer.addEventListener('mouseleave', () => {
-    isLinksHovered = false;
-    indicator.style.width = '';
-    indicator.style.left = '';
-  });
+  
+
+  
   window.addEventListener('resize', () => {
-    if (isLinksHovered && lastLink) moveIndicatorTo(lastLink);
+    if (lastLink) moveIndicatorTo(lastLink);
   });
 });
 </script>
